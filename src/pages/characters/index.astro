@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+let characters = [];
+try { characters = await getCollection('characters'); } catch {}
+---
+<BaseLayout title="Characters — SECTOR 404">
+  <p class="kicker">Entities</p>
+  <h1>Characters</h1>
+  {characters.length ? (
+    <div class="grid">
+      {characters.map((character) => <article class="card"><h2>{character.data.name}</h2><p class="muted">{character.data.role || character.data.status}</p></article>)}
+    </div>
+  ) : <p class="lead">Inga karaktärer är publicerade ännu.</p>}
+</BaseLayout>

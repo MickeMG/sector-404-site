@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+let stories = [];
+try { stories = await getCollection('stories'); } catch {}
+---
+<BaseLayout title="Stories — SECTOR 404">
+  <p class="kicker">Fragments</p>
+  <h1>Stories</h1>
+  {stories.length ? (
+    <div class="grid">
+      {stories.map((story) => <article class="card"><h2>{story.data.title}</h2><p class="muted">{story.data.type}</p></article>)}
+    </div>
+  ) : <p class="lead">Inga fragment är publicerade ännu.</p>}
+</BaseLayout>

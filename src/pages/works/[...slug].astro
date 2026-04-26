@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const works = await getCollection('works');
+  return works.map((work) => ({ params: { slug: work.id }, props: { work } }));
+}
+const { work } = Astro.props;
+const { Content } = await render(work);
+---
+<BaseLayout title={`${work.data.title} — SECTOR 404`}>
+  <p class="kicker">{work.data.status}</p>
+  <h1>{work.data.title}</h1>
+  <Content />
+</BaseLayout>

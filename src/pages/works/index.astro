@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const works = await getCollection('works');
+---
+<BaseLayout title="Works — SECTOR 404">
+  <p class="kicker">Objects</p>
+  <h1>Works</h1>
+  <div class="grid">
+    {works.map((work) => <article class="card"><a href={`${work.id}/`}><h2>{work.data.title}</h2><p class="muted">{work.data.status}</p></a></article>)}
+  </div>
+</BaseLayout>
