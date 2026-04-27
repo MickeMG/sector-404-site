@@ -754,8 +754,14 @@ p, li, small { text-wrap: pretty; }
 .card h2 { margin-top: .3rem; }
 .card p { margin-top: .75rem; max-width: 30rem; line-height: 1.62; }
 .card:hover { border-color: rgba(143,255,234,.34); background-color: rgba(10,18,20,.85); }
+.artifact-manifest-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 255px), 340px));
+  justify-content: start;
+  align-items: stretch;
+  gap: .85rem;
+}
 .artifact-card.has-cover {
-  min-height: 26rem;
+  min-height: 22.5rem;
   padding: 0;
   isolation: isolate;
   background:
@@ -763,9 +769,10 @@ p, li, small { text-wrap: pretty; }
     rgba(4,7,8,.86);
 }
 .artifact-card.has-cover a {
-  grid-template-rows: minmax(13.5rem, 1fr) auto auto auto;
-  padding: 1rem;
-  align-content: stretch;
+  grid-template-rows: minmax(10.5rem, auto) auto auto auto;
+  gap: .58rem;
+  padding: .72rem;
+  align-content: start;
 }
 .artifact-card-status {
   display: inline-grid;
@@ -804,10 +811,11 @@ p, li, small { text-wrap: pretty; }
 .artifact-card-cover {
   position: relative;
   z-index: 0;
-  min-height: 13.5rem;
+  min-height: 10.5rem;
+  aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
-  margin: -.25rem -.25rem .35rem;
+  margin: 0 0 .25rem;
   border: 1px solid rgba(143,255,234,.14);
   background:
     radial-gradient(circle at 50% 40%, rgba(143,255,234,.10), transparent 42%),
@@ -842,8 +850,8 @@ p, li, small { text-wrap: pretty; }
   z-index: 0;
   width: auto;
   height: auto;
-  max-width: 94%;
-  max-height: 15rem;
+  max-width: 98%;
+  max-height: 12rem;
   object-fit: contain;
   filter: saturate(.9) contrast(1.08) brightness(.84);
 }
@@ -1934,6 +1942,7 @@ p, li, small { text-wrap: pretty; }
   .status-strip div:nth-child(2) { border-right: 0; }
   .status-strip div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .portal-grid, .artifact-feed-grid { grid-template-columns: 1fr; }
+  .artifact-manifest-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
   .artifact-dossier-shell::before { max-width: calc(100% - 1.4rem); line-height: 1.35; }
   .artifact-specimen { min-height: clamp(17rem, 52vh, 30rem); }
   .artifact-specimen img { max-height: min(56vh, 30rem); }
@@ -1945,6 +1954,10 @@ p, li, small { text-wrap: pretty; }
 @media (max-width: 520px) {
   main { width: min(100% - 1rem, var(--max)); }
   .access-console, .status-strip { grid-template-columns: 1fr; }
+  .artifact-manifest-grid { grid-template-columns: 1fr; }
+  .artifact-card.has-cover { min-height: 20.5rem; }
+  .artifact-card-cover { min-height: 9.5rem; }
+  .artifact-card-cover img { max-height: 11rem; }
   .artifact-specimen { min-height: clamp(14rem, 44vh, 24rem); }
   .artifact-specimen img { max-height: min(48vh, 24rem); }
   .status-strip div { border-right: 0; border-bottom: 1px solid var(--line); }

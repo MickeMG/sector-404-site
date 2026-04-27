@@ -26,7 +26,7 @@ const statusPhrase = (status) => status === 'sold' ? 'Transfer complete / no lon
       </div>
       <p class="muted">Acquire means: accept the file into your room and stop pretending it is only decoration.</p>
     </div>
-    <div class="grid wide">
+    <div class="grid wide artifact-manifest-grid">
       {works.map((work, index) => (
         <article class={`card artifact-card ${work.data.cover ? 'has-cover' : ''}`} data-code={`ART_${String(index + 1).padStart(3, '0')}`}>
           <a href={`${work.id}/`}>
