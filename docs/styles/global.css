@@ -752,6 +752,20 @@ p, li, small { text-wrap: pretty; }
 }
 .card a { text-decoration: none; display: grid; gap: .75rem; height: 100%; }
 .card h2 { margin-top: .3rem; }
+.artifact-card.has-cover h2 {
+  color: var(--cyan);
+  text-shadow:
+    0 0 18px rgba(16,255,184,.34),
+    2px 0 0 rgba(143,255,234,.12),
+    -1px 0 0 rgba(255,39,79,.18);
+}
+.artifact-card.has-cover:hover h2 {
+  color: #7dffd6;
+  text-shadow:
+    0 0 24px rgba(16,255,184,.48),
+    2px 0 0 rgba(143,255,234,.18),
+    -2px 0 0 rgba(255,39,79,.22);
+}
 .card p { margin-top: .75rem; max-width: 30rem; line-height: 1.62; }
 .card:hover { border-color: rgba(143,255,234,.34); background-color: rgba(10,18,20,.85); }
 .grid.wide.artifact-manifest-grid {
