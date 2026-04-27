@@ -1652,9 +1652,9 @@ p, li, small { text-wrap: pretty; }
   box-shadow: inset 0 0 70px rgba(0,0,0,.42), 0 0 40px rgba(0,0,0,.34);
 }
 .artifact-specimen {
-  min-height: clamp(28rem, 72vh, 48rem);
+  min-height: clamp(24rem, 64vh, 44rem);
   display: grid;
-  align-items: center;
+  place-items: center;
   clip-path: polygon(0 0, calc(100% - 1.4rem) 0, 100% 1.4rem, 100% 100%, 1.4rem 100%, 0 calc(100% - 1.4rem));
 }
 .artifact-specimen::before {
@@ -1690,8 +1690,11 @@ p, li, small { text-wrap: pretty; }
   filter: saturate(.92) contrast(1.08);
 }
 .artifact-specimen img {
-  max-height: 78vh;
+  width: auto;
+  max-width: 100%;
+  max-height: min(70vh, 44rem);
   object-fit: contain;
+  margin-inline: auto;
   background: radial-gradient(circle at 50% 38%, rgba(143,255,234,.06), rgba(0,0,0,.5));
 }
 .artifact-specimen figcaption {
@@ -1875,8 +1878,8 @@ p, li, small { text-wrap: pretty; }
   .console-grid, .breach-wall, .signal-ritual, .classified-grid, .incident-timeline, .journal-grid { grid-template-columns: 1fr; }
   .artifact-dossier-shell { grid-template-columns: 1fr; }
   .artifact-dossier-copy { position: relative; top: auto; }
-  .artifact-specimen { min-height: auto; }
-  .artifact-specimen img { max-height: none; }
+  .artifact-specimen { min-height: clamp(20rem, 58vh, 36rem); }
+  .artifact-specimen img { max-height: min(62vh, 36rem); }
   .file-header { display: grid; align-items: start; }
   .file-meta { text-align: left; }
   .journal-header { display: grid; align-items: start; }
@@ -1893,6 +1896,8 @@ p, li, small { text-wrap: pretty; }
   .status-strip div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .portal-grid, .artifact-feed-grid { grid-template-columns: 1fr; }
   .artifact-dossier-shell::before { max-width: calc(100% - 1.4rem); line-height: 1.35; }
+  .artifact-specimen { min-height: clamp(17rem, 52vh, 30rem); }
+  .artifact-specimen img { max-height: min(56vh, 30rem); }
   .artifact-narrative { min-height: auto; }
   .evidence-wall .artifact-gallery-item { transform: none !important; }
   .section-head { display: grid; align-items: start; }
@@ -1901,6 +1906,8 @@ p, li, small { text-wrap: pretty; }
 @media (max-width: 520px) {
   main { width: min(100% - 1rem, var(--max)); }
   .access-console, .status-strip { grid-template-columns: 1fr; }
+  .artifact-specimen { min-height: clamp(14rem, 44vh, 24rem); }
+  .artifact-specimen img { max-height: min(48vh, 24rem); }
   .status-strip div { border-right: 0; border-bottom: 1px solid var(--line); }
   .status-strip div:last-child { border-bottom: 0; }
   .console-top { display: grid; }
