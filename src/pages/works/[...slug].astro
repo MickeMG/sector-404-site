@@ -10,7 +10,9 @@ const { Content } = await render(work);
 const gallery = work.data.gallery?.length ? work.data.gallery : (work.data.cover ? [work.data.cover] : []);
 const primaryImage = gallery[0];
 const detailImages = gallery.slice(1);
-const statusLabel = work.data.status === 'sold' ? 'Removed from circulation' : work.data.status;
+const isSold = work.data.status === 'sold';
+const statusLabel = isSold ? 'SOLD' : work.data.status;
+const statusPhrase = isSold ? 'Transfer complete / object no longer answers to the public' : 'Still mutating / transfer not cleared';
 ---
 <BaseLayout title={`${work.data.title} — SECTOR 404`} description={`Recovered artifact file: ${work.data.title}`}>
   <section class="hero small portal page-hero artifact-detail-hero">
@@ -20,7 +22,7 @@ const statusLabel = work.data.status === 'sold' ? 'Removed from circulation' : w
       <span>TRACE KEPT</span>
     </div>
     <div class="hero-copy">
-      <p class="terminal-label">Artifact file / {statusLabel} / access logged</p>
+      <p class="terminal-label">Artifact file / {statusLabel} / {statusPhrase}</p>
       <h1 data-text={work.data.title}>{work.data.title}</h1>
       <p class="lead">{work.data.medium || 'Recovered object. Authentication is incomplete because the object is still answering back.'}</p>
     </div>
@@ -48,7 +50,7 @@ const statusLabel = work.data.status === 'sold' ? 'Removed from circulation' : w
       <aside class="panel artifact-manifest" aria-label={`${work.data.title} manifest metadata`}>
         <p class="kicker">Manifest metadata</p>
         <div class="file-list">
-          <div class="file-row"><span>Status</span><b>{statusLabel}</b></div>
+          <div class="file-row status-row"><span>Status</span><b><strong class="artifact-status-stamp">{statusLabel}</strong><small>{statusPhrase}</small></b></div>
           {work.data.year && <div class="file-row"><span>Year</span><b>{work.data.year}</b></div>}
           {work.data.medium && <div class="file-row"><span>Medium</span><b>{work.data.medium}</b></div>}
           {work.data.dimensions && <div class="file-row"><span>Dimensions</span><b>{work.data.dimensions}</b></div>}

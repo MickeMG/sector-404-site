@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 const works = await getCollection('works');
+const statusLabel = (status) => status === 'sold' ? 'SOLD' : status;
+const statusPhrase = (status) => status === 'sold' ? 'Transfer complete / no longer public' : 'Still mutating / transfer not cleared';
 ---
 <BaseLayout title="Artifacts — SECTOR 404" description="Recovered objects, physical works and contaminated artifacts surfaced through an access point that should not be public.">
   <section class="hero small portal page-hero artifacts-hero">
@@ -33,7 +35,10 @@ const works = await getCollection('works');
                 <img src={work.data.cover} alt="" loading="lazy" />
               </span>
             )}
-            <span class="kicker">{work.data.status === 'sold' ? 'Removed from circulation' : work.data.status}</span>
+            <span class={`kicker artifact-card-status ${work.data.status === 'sold' ? 'is-sold' : ''}`}>
+              <b>{statusLabel(work.data.status)}</b>
+              <small>{statusPhrase(work.data.status)}</small>
+            </span>
             <h2>{work.data.title}</h2>
             <p class="muted">{work.data.medium || 'Artifact file pending'}</p>
           </a>
