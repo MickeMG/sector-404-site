@@ -7,9 +7,73 @@ export async function getStaticPaths() {
 }
 const { work } = Astro.props;
 const { Content } = await render(work);
+const gallery = work.data.gallery?.length ? work.data.gallery : (work.data.cover ? [work.data.cover] : []);
+const primaryImage = gallery[0];
+const detailImages = gallery.slice(1);
+const statusLabel = work.data.status === 'sold' ? 'Removed from circulation' : work.data.status;
 ---
-<BaseLayout title={`${work.data.title} — SECTOR 404`}>
-  <p class="kicker">{work.data.status}</p>
-  <h1>{work.data.title}</h1>
-  <Content />
+<BaseLayout title={`${work.data.title} — SECTOR 404`} description={`Recovered artifact file: ${work.data.title}`}>
+  <section class="hero small portal page-hero artifact-detail-hero">
+    <div class="breach-frame" aria-hidden="true">
+      <span>ARTIFACT FILE</span>
+      <span>AUTHENTICATION DIRTY</span>
+      <span>TRACE KEPT</span>
+    </div>
+    <div class="hero-copy">
+      <p class="terminal-label">Artifact file / {statusLabel} / access logged</p>
+      <h1 data-text={work.data.title}>{work.data.title}</h1>
+      <p class="lead">{work.data.medium || 'Recovered object. Authentication is incomplete because the object is still answering back.'}</p>
+    </div>
+  </section>
+
+  <section class={`section artifact-dossier-shell ${primaryImage ? 'has-specimen' : 'text-only'}`} aria-labelledby="artifact-dossier-title">
+    {primaryImage && (
+      <figure class="artifact-specimen">
+        <img src={primaryImage} alt={`${work.data.title} primary recovered artifact view`} loading="eager" />
+        <figcaption>
+          <span>IMAGE_001 / PRIMARY SPECIMEN</span>
+          <b>{work.data.title}</b>
+        </figcaption>
+      </figure>
+    )}
+
+    <div class="artifact-dossier-copy">
+      <article class="panel copy-block artifact-narrative">
+        <p class="kicker">Recovered notes / injected before visual archive</p>
+        <div class="artifact-copy-content" id="artifact-dossier-title">
+          <Content />
+        </div>
+      </article>
+
+      <aside class="panel artifact-manifest" aria-label={`${work.data.title} manifest metadata`}>
+        <p class="kicker">Manifest metadata</p>
+        <div class="file-list">
+          <div class="file-row"><span>Status</span><b>{statusLabel}</b></div>
+          {work.data.year && <div class="file-row"><span>Year</span><b>{work.data.year}</b></div>}
+          {work.data.medium && <div class="file-row"><span>Medium</span><b>{work.data.medium}</b></div>}
+          {work.data.dimensions && <div class="file-row"><span>Dimensions</span><b>{work.data.dimensions}</b></div>}
+          {work.data.price_sek && <div class="file-row"><span>Transfer</span><b>{work.data.price_sek} SEK</b></div>}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {detailImages.length > 0 && (
+    <section class="section artifact-gallery-shell evidence-scroll">
+      <div class="section-head artifact-gallery-head">
+        <div>
+          <p class="kicker">Remaining visual trace</p>
+          <h2>The rest of the body enters as evidence.</h2>
+        </div>
+        <p class="muted">The description has already contaminated the viewing order. These are no longer product photos. They are witness fragments.</p>
+      </div>
+      <div class="artifact-gallery evidence-wall" aria-label={`${work.data.title} image archive`}>
+        {detailImages.map((image, index) => (
+          <figure class="artifact-gallery-item" data-frame={`IMG_${String(index + 2).padStart(3, '0')}`}>
+            <img src={image} alt={`${work.data.title} detail ${index + 2}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>

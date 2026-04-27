@@ -1,8 +1,10 @@
 ---
 name: "First Entity"
-status: "unknown"
-role: "placeholder"
-tags: ["placeholder"]
+status: "withheld"
+role: "subject file"
+tags: ["restricted", "entity"]
 ---
 
-Placeholder. Byt ut mig när första verkliga karaktären träder fram.
+Subject record withheld.
+
+The empty field is intentional. Some entities enter the archive as absence first: a trace, a locked profile, a face the system refuses to render cleanly.

@@ -4,12 +4,50 @@ import { getCollection } from 'astro:content';
 let characters = [];
 try { characters = await getCollection('characters'); } catch {}
 ---
-<BaseLayout title="Characters — SECTOR 404">
-  <p class="kicker">Entities</p>
-  <h1>Characters</h1>
-  {characters.length ? (
-    <div class="grid">
-      {characters.map((character) => <article class="card"><h2>{character.data.name}</h2><p class="muted">{character.data.role || character.data.status}</p></article>)}
+<BaseLayout title="Entities — SECTOR 404" description="Subject files, couriers, curators and signal-priests moving through the denied corridors of SECTOR 404.">
+  <section class="hero small portal page-hero entities-hero">
+    <div class="breach-frame" aria-hidden="true">
+      <span>SUBJECT/CCTV</span>
+      <span>BIOMETRIC RESIDUE</span>
+      <span>IDENTITY DEGRADED</span>
     </div>
-  ) : <p class="lead">Inga karaktärer är publicerade ännu.</p>}
+    <div class="hero-copy">
+      <p class="terminal-label">Subject access not cleared</p>
+      <h1 data-text="ENTITIES">ENTITIES</h1>
+      <p class="lead">Not character profiles. Subject residue. Curators, witnesses, signal-priests and bodies the system tried to reduce to files.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Entity index</p>
+        <h2>The system keeps people as records when it cannot erase them.</h2>
+      </div>
+      <p class="muted">Curators, couriers, signal-priests, witnesses and bodies moving through the denied archive with their damage still attached.</p>
+    </div>
+    {characters.length ? (
+      <div class="grid wide">
+        {characters.map((character, index) => (
+          <article class="card" data-code={`ENT_${String(index + 1).padStart(3, '0')}`}>
+            <span class="kicker">{character.data.status}</span>
+            <h2>{character.data.name}</h2>
+            <p class="muted">{character.data.role || 'Subject file pending'}</p>
+          </article>
+        ))}
+      </div>
+    ) : <p class="lead">No subject files are cleared. The empty space is not an error; it is a closed door.</p>}
+  </section>
+
+  <section class="section portal-grid entity-skin">
+    <article class="panel copy-block surface-card surface-salvage">
+      <p class="kicker">Biometric residue</p>
+      <h2>A person becomes an interface before the archive calls them a ghost.</h2>
+      <p>Names arrive damaged here. Faces arrive as residue. The system stores what it cannot understand as surveillance.</p>
+    </article>
+    <article class="panel copy-block surface-card surface-dump">
+      <p class="kicker">Subject handling</p>
+      <h2>Identity is stored as damage.</h2>
+      <p>Curators, couriers and signal-priests pass through the archive as scratches, metadata and partial witness statements. Enough to follow. Not enough to trust.</p>
+    </article>
+  </section>
 </BaseLayout>

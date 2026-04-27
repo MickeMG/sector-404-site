@@ -11,6 +11,7 @@ const works = defineCollection({
     medium: z.string().optional(),
     dimensions: z.string().optional(),
     cover: z.string().optional(),
+    gallery: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
   }),
 });
@@ -35,6 +36,18 @@ const stories = defineCollection({
   }),
 });
 
+
+const signals = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/signals' }),
+  schema: z.object({
+    title: z.string(),
+    status: z.enum(['prospect', 'active', 'archived']).default('prospect'),
+    type: z.string().default('external'),
+    summary: z.string().default(''),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
 const lore = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/lore' }),
   schema: z.object({
@@ -44,4 +57,4 @@ const lore = defineCollection({
   }),
 });
 
-export const collections = { works, characters, stories, lore };
+export const collections = { works, characters, stories, lore, signals };

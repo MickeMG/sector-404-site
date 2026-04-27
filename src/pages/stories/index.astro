@@ -4,12 +4,45 @@ import { getCollection } from 'astro:content';
 let stories = [];
 try { stories = await getCollection('stories'); } catch {}
 ---
-<BaseLayout title="Stories — SECTOR 404">
-  <p class="kicker">Fragments</p>
-  <h1>Stories</h1>
-  {stories.length ? (
-    <div class="grid">
-      {stories.map((story) => <article class="card"><h2>{story.data.title}</h2><p class="muted">{story.data.type}</p></article>)}
+<BaseLayout title="Fragments — SECTOR 404" description="Recovered narrative fragments, damaged transmissions and story files leaking from the denied archive.">
+  <section class="hero small portal page-hero fragments-hero">
+    <div class="breach-frame" aria-hidden="true">
+      <span>NARRATIVE SURFACE</span>
+      <span>SEQUENCE DAMAGED</span>
+      <span>FILE STILL BREATHING</span>
     </div>
-  ) : <p class="lead">Inga fragment är publicerade ännu.</p>}
+    <div class="hero-copy">
+      <p class="terminal-label">Recovered sequence damaged</p>
+      <h1 data-text="FRAGMENTS">FRAGMENTS</h1>
+      <p class="lead">Stories do not enter SECTOR 404 whole. They arrive as damaged transmissions, witness residue and files that survived by refusing to explain themselves.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Recovered narrative surfaces</p>
+        <h2>The archive does not tell stories. It opens gaps.</h2>
+      </div>
+      <p class="muted">Fragments arrive out of sequence. That is not damage. That is how they escaped.</p>
+    </div>
+    {stories.length ? (
+      <div class="grid wide">
+        {stories.map((story, index) => (
+          <article class="card" data-code={`FRG_${String(index + 1).padStart(3, '0')}`}>
+            <span class="kicker">{story.data.status}</span>
+            <h2>{story.data.title}</h2>
+            <p class="muted">{story.data.type}</p>
+          </article>
+        ))}
+      </div>
+    ) : <p class="lead">No fragments are cleared. Something is present behind the lock, but the lock is still winning.</p>}
+  </section>
+
+  <section class="section story-skin">
+    <article class="panel copy-block surface-card surface-dump">
+      <p class="kicker">Recovered surface</p>
+      <h2>Fragments arrive with dirt still attached.</h2>
+      <p>Text, image and object do not separate cleanly here. The narrative leaks through industrial residue, CCTV burn and damaged material memory.</p>
+    </article>
+  </section>
 </BaseLayout>

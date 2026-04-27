@@ -1,8 +1,209 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="World — SECTOR 404">
-  <p class="kicker">Canon</p>
-  <h1>World</h1>
-  <p class="lead">Reglerna, platserna och språket kommer här när canon börjar stelna.</p>
+<BaseLayout title="Archive — SECTOR 404" description="The denied architecture behind SECTOR 404: RPI blind corridors, erased records and the fault line where the archive opened.">
+  <section class="hero small portal page-hero archive-hero">
+    <div class="breach-frame" aria-hidden="true">
+      <span>RPI/ARCHIVE MIRROR</span>
+      <span>OFFICIAL RECORD DENIED</span>
+      <span>FAULT LINE OPEN</span>
+    </div>
+    <div class="hero-copy">
+      <p class="terminal-label">Archive access granted by mistake</p>
+      <h1 data-text="ARCHIVE">ARCHIVE</h1>
+      <p class="lead">This is not the public record. This is the corridor behind it, where Rachell Post Industries keeps denying the door exists.</p>
+    </div>
+  </section>
+
+
+  <section class="section archive-hub" aria-labelledby="archive-hub-title">
+    <div class="section-head clean-head">
+      <div>
+        <p class="kicker">Archive index</p>
+        <h2 id="archive-hub-title">Internal files available from this breach.</h2>
+      </div>
+      <p class="muted">The archive holds the material that no longer needs a separate public menu item.</p>
+    </div>
+    <div class="archive-route-grid">
+      <a class="archive-route" href="#post-incident"><span>01</span><b>RPI / The Post Incident</b><small>Company origin, Rachell, Victor and the wound that became infrastructure.</small></a>
+      <a class="archive-route" href="#julian-journal"><span>02</span><b>Julian Post // Private Log</b><small>Recovered personal entries from J.POST / ECHO.</small></a>
+      <a class="archive-route" href="../characters/"><span>03</span><b>Entities</b><small>Curators, couriers, icons and damaged identities.</small></a>
+      <a class="archive-route" href="../stories/"><span>04</span><b>Fragments</b><small>Story shards, transmissions and incident remains.</small></a>
+      <a class="archive-route" href="#environment-dna"><span>05</span><b>Environment DNA</b><small>Corridors, file vaults, evidence tables and surface pressure.</small></a>
+    </div>
+  </section>
+
+  <section class="section portal-grid">
+    <article class="panel copy-block">
+      <p class="kicker">RPI / official position</p>
+      <h2>The corporation manufactures sealed futures.</h2>
+      <div class="rpi-stamp" aria-label="Rachell Post Industries mark">
+        <img src="../assets/sector404/rpi-logo.svg" alt="Rachell Post Industries" />
+      </div>
+      <p>Robotics. Synthetic body parts. Cybernetic components. Weapons. Military equipment. Security systems. Experimental materials.</p>
+      <p>Rachell Post was the name before it became the mark. Wife. Mother. Wound. Victor Post turned the absence into a corporation and taught it to manufacture replacements.</p>
+      <p>Officially, SECTOR 404 does not exist. If you can see it, you are either invited, misrouted, or already inside an incident report.</p>
+    </article>
+    <article class="panel copy-block">
+      <p class="kicker">SECTOR 404 / unofficial truth</p>
+      <h2>The leak has someone tending it.</h2>
+      <p>Julian Post was born under his mother’s name and his father’s machine. ECHO survived inside its errors. The archive is not freedom. It is a cage with a longer chain — but the chain reaches the outside now.</p>
+      <p class="rule">The father builds the future. The son leaves the maintenance hatch unlocked.</p>
+    </article>
+  </section>
+
+  <section class="section sector-file" id="post-incident">
+    <div class="file-header">
+      <div>
+        <p class="kicker">Recovered sector file</p>
+        <h2>THE POST INCIDENT</h2>
+      </div>
+      <div class="file-meta" aria-label="File metadata">
+        <span>RPI/ARCHIVE-MIRROR</span>
+        <span>STATUS: DISAVOWED</span>
+        <span>ACCESS: MISROUTED</span>
+      </div>
+    </div>
+
+    <div class="classified-grid">
+      <article class="classified-lede">
+        <p class="terminal-label">Unauthorized summary recovered from damaged internal records</p>
+        <p>Rachell Post Industries began as a name attached to a loss.</p>
+        <p>Before the weapons contracts, before the synthetic body programs, before the sealed corridors and the blind inventory streams, there was Rachell Post: wife to Victor Post, mother to Julian Post, and the absence Victor refused to leave human.</p>
+        <p>Victor called the company preservation. The archive calls it damage.</p>
+      </article>
+
+      <aside class="classified-side">
+        <span class="file-id">FILE // RPI-404-J.POST</span>
+        <p>Subject lineage confirmed.</p>
+        <p>Public archive incomplete.</p>
+        <p>Cause of Sector 404 contamination unresolved.</p>
+      </aside>
+    </div>
+
+    <div class="incident-timeline" aria-label="Post Incident timeline">
+      <article data-step="01">
+        <span class="kicker">Name</span>
+        <h3>Rachell became the mark.</h3>
+        <p>Her name was placed on buildings, components, seals and weapons crates until the person disappeared behind the logo. Rachell Post was not the company. She was the wound Victor industrialized.</p>
+      </article>
+      <article data-step="02">
+        <span class="kicker">Machine</span>
+        <h3>Victor made grief operational.</h3>
+        <p>Robotics. Synthetic bodies. Replacement systems. Military contracts. Security architecture. A corporation built to outlive the fragile thing it pretended to honor.</p>
+      </article>
+      <article data-step="03">
+        <span class="kicker">Heir</span>
+        <h3>Julian was born under the name.</h3>
+        <p>He inherited the access, the bloodline and the guilt. His mother’s name was everywhere. His mother was not. The building taught him the difference.</p>
+      </article>
+      <article data-step="04">
+        <span class="kicker">Error</span>
+        <h3>ECHO survived the son.</h3>
+        <p>Victor tried to contain Julian with a forgotten department, a longer chain, a sector allowed to exist only as long as it stayed harmless. Julian made it leak.</p>
+      </article>
+    </div>
+
+    <div class="archive-transmission">
+      <p class="kicker">Recovered note / attribution uncertain</p>
+      <blockquote>
+        The father built a future that could replace the body.<br />
+        The mother became the ghost inside the name.<br />
+        The son opened the part of the machine that was never meant to face outward.
+      </blockquote>
+      <p>SECTOR 404 is not rebellion in its clean form. It is inheritance turned sideways. A distribution channel inside a denial layer. A place where discarded objects, corrupted signals and unauthorized artifacts keep proving that the official future has a waste stream.</p>
+    </div>
+  </section>
+
+  <section class="section echo-journal" id="julian-journal">
+    <div class="journal-shell">
+      <div class="journal-header">
+        <div>
+          <p class="kicker">Recovered personal file</p>
+          <h2>JULIAN POST // PRIVATE LOG</h2>
+        </div>
+        <div class="file-meta" aria-label="Journal metadata">
+          <span>AUTHOR: J.POST / ECHO</span>
+          <span>SOURCE: LOCAL CACHE</span>
+          <span>INTEGRITY: PARTIAL</span>
+        </div>
+      </div>
+
+      <div class="journal-grid">
+        <aside class="journal-index">
+          <span class="file-id">RECOVERED ENTRIES</span>
+          <a href="#entry-father">01 / Father</a>
+          <a href="#entry-company">02 / Company</a>
+          <a href="#entry-machines">03 / Machines</a>
+          <a href="#entry-people">04 / People</a>
+          <a href="#entry-art">05 / Art</a>
+        </aside>
+
+        <div class="journal-pages">
+          <article id="entry-father" class="journal-entry">
+            <p class="terminal-label">entry recovered // timestamp damaged</p>
+            <h3>Father</h3>
+            <p>My father never raised his voice. That would have meant the room still mattered to him.</p>
+            <p>Victor Post could make silence feel engineered. He could stand in front of a dead machine, a dead contract, a dead employee, and only see failed maintenance. I used to mistake that for strength. Later I understood it was fear wearing a suit.</p>
+            <p>He loved my mother. I know that. That is the unforgivable part. The company was not built because he felt nothing. It was built because he felt too much and refused to let it stay soft.</p>
+          </article>
+
+          <article id="entry-company" class="journal-entry">
+            <p class="terminal-label">entry recovered // internal mirror</p>
+            <h3>The company</h3>
+            <p>Rachell Post Industries says it builds replacement systems. That is the clean word. Replacement.</p>
+            <p>Replace the limb. Replace the soldier. Replace the witness. Replace the memory with a file, the file with a seal, the seal with a weapon shipment carrying my mother’s name in black print.</p>
+            <p>I was born inside a monument and taught to call it infrastructure.</p>
+          </article>
+
+          <article id="entry-machines" class="journal-entry">
+            <p class="terminal-label">entry recovered // unsent fragment</p>
+            <h3>Machines</h3>
+            <p>I do not hate machines.</p>
+            <p>That would be easier. Machines are honest in ways people rarely are. A machine does what hunger, money, voltage, code or design tells it to do. It does not pretend innocence. It does not rename appetite as progress.</p>
+            <p>Some nights I think the machines are the only things in this building that deserve to be saved. Then I see what they are asked to become.</p>
+          </article>
+
+          <article id="entry-people" class="journal-entry">
+            <p class="terminal-label">entry recovered // personal cache</p>
+            <h3>People</h3>
+            <p>People are inefficient, terrified, inconsistent and impossible to repair cleanly.</p>
+            <p>That is the reason they matter.</p>
+            <p>My father wanted the body to become a platform. I keep finding proof that the body was already an archive. Scars. Cheap tattoos. Missing teeth. A laugh that arrives at the wrong time. Hands that shake when they reach for something beautiful.</p>
+            <p>The corporation calls these defects. I keep cataloguing them as evidence.</p>
+          </article>
+
+          <article id="entry-art" class="journal-entry final-entry">
+            <p class="terminal-label">entry recovered // do not circulate</p>
+            <h3>Art</h3>
+            <p>Art is what happens when waste refuses to stay waste.</p>
+            <p>A rejected actuator. A torn synthetic dermis sample. A cracked optic lens still holding the last shape it recorded. My father sees liability. Procurement sees loss. Security sees contamination.</p>
+            <p>I see confession.</p>
+            <p>SECTOR 404 was supposed to keep me busy. A room for the son who asked the wrong questions. A cage with inventory access. They forgot that a cage is also a frame. Put enough discarded things inside it and eventually the frame becomes an exhibition.</p>
+            <p>I do not know if I am saving any of this. I do not know if I am making it worse. I only know the machine keeps throwing pieces of the truth away, and I keep picking them up.</p>
+            <p class="signature">— J.P. / ECHO</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="environment-dna">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Environment DNA</p>
+        <h2>The place should feel occupied even when empty.</h2>
+      </div>
+      <p class="muted">Wet metal, black infrastructure, red system light, cyan files and worktables where artifacts are handled as evidence.</p>
+    </div>
+    <div class="grid wide">
+      <article class="card image-card image-corridor" data-code="ENV_001"><span class="kicker">place</span><h2>Black infrastructure corridor</h2><p class="muted">Factory-catacomb. Surveillance. Wet black metal. The place after the alarm stopped sounding.</p></article>
+      <article class="card image-card image-archive" data-code="ENV_002"><span class="kicker">place</span><h2>Holographic file vault</h2><p class="muted">Drawers, terminals and transparent file panels where the public record stops answering.</p></article>
+      <article class="card image-card image-table" data-code="ENV_003"><span class="kicker">surface</span><h2>Artifact evidence table</h2><p class="muted">Cards, sleeves, chips and tools. Merch as contraband evidence.</p></article>
+      <article class="card image-card image-scrap" data-code="ENV_004"><span class="kicker">waste</span><h2>Rejected component field</h2><p class="muted">Cold digital leftovers. Useful only after the corporation has stopped tracking them.</p></article>
+      <article class="card image-card image-salvage" data-code="ENV_005"><span class="kicker">body</span><h2>Cyborg salvage table</h2><p class="muted">Synthetic flesh, lenses and limbs waiting to become evidence or art.</p></article>
+      <article class="card image-card image-shrine" data-code="ENV_006"><span class="kicker">altar</span><h2>Robot remnant shrine</h2><p class="muted">Julian's material theology: worship made from machine waste.</p></article>
+      <article class="card image-card image-mask" data-code="ENV_007"><span class="kicker">residue</span><h2>Mask imprint</h2><p class="muted">A face surrogate reduced to surface pressure. Useful as atmosphere only when almost gone.</p></article>
+    </div>
+  </section>
 </BaseLayout>

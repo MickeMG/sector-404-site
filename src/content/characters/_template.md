@@ -5,4 +5,4 @@ role: ""
 tags: []
 ---
 
-Publik karaktärstext.
+Public subject text.
