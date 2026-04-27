@@ -23,7 +23,7 @@ const statusPhrase = isSold ? 'Transfer complete / object no longer answers to t
     </div>
     <div class="hero-copy">
       <p class="terminal-label">Artifact file / {statusLabel} / {statusPhrase}</p>
-      <h1 data-text={work.data.title}>{work.data.title}</h1>
+      <h1 class="artifact-title" data-text={work.data.title}>{work.data.title}</h1>
       <p class="lead">{work.data.medium || 'Recovered object. Authentication is incomplete because the object is still answering back.'}</p>
     </div>
   </section>
@@ -34,7 +34,7 @@ const statusPhrase = isSold ? 'Transfer complete / object no longer answers to t
         <img src={primaryImage} alt={`${work.data.title} primary recovered artifact view`} loading="eager" />
         <figcaption>
           <span>IMAGE_001 / PRIMARY SPECIMEN</span>
-          <b>{work.data.title}</b>
+          <b class="artifact-title-inline">{work.data.title}</b>
         </figcaption>
       </figure>
     )}
