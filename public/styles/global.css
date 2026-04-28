@@ -2293,8 +2293,8 @@ p, li, small { text-wrap: pretty; }
   display: grid;
   justify-items: center;
   align-items: end;
-  gap: clamp(.1rem, .55vh, .35rem);
-  filter: drop-shadow(0 0 24px rgba(143,255,234,.16)) drop-shadow(0 0 44px rgba(255,39,79,.06));
+  gap: 0;
+  filter: none;
 }
 
 .access-gate__video {
@@ -2311,10 +2311,10 @@ p, li, small { text-wrap: pretty; }
   max-width: 72vw;
   height: auto;
   display: block;
-  margin-top: clamp(-1.8rem, -3.6vh, -.4rem);
+  margin-top: 0;
   opacity: .95;
   mix-blend-mode: screen;
-  filter: contrast(1.12) brightness(.95) drop-shadow(0 0 18px rgba(143,255,234,.12));
+  filter: contrast(1.12) brightness(.95);
 }
 
 .access-gate__panel {
