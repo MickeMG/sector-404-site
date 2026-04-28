@@ -86,6 +86,44 @@
     try { playBootAudio(); } catch (_) {}
   };
 
+  const setupTerminalTick = () => {
+    const source = (() => {
+      const script = document.querySelector('script[src$="home-breach.js"]');
+      const scriptUrl = script?.getAttribute('src') || '/home-breach.js';
+      try {
+        return new URL('assets/audio/sector-404-terminal-tick.mp3', new URL(scriptUrl, window.location.href)).href;
+      } catch (_) {
+        return '/assets/audio/sector-404-terminal-tick.mp3';
+      }
+    })();
+
+    const pool = [];
+    let pointer = 0;
+
+    const ensure = () => {
+      if (pool.length) return;
+      for (let i = 0; i < 6; i += 1) {
+        const a = new Audio(source);
+        a.preload = 'auto';
+        a.volume = 0.34;
+        pool.push(a);
+      }
+    };
+
+    return () => {
+      try {
+        ensure();
+        const a = pool[pointer % pool.length];
+        pointer += 1;
+        a.currentTime = 0;
+        const playPromise = a.play();
+        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+      } catch (_) {}
+    };
+  };
+
+  const playTerminalTick = setupTerminalTick();
+
   const root = document.querySelector('[data-breach-home]');
   if (!root) return;
 
@@ -105,10 +143,25 @@
     'do not trust the clean version',
   ];
 
-  const setLine = (line, text, delay) => {
+  const typeLine = (line, text, delay, done) => {
     window.setTimeout(() => {
-      line.textContent = text;
-      line.classList.add('is-visible');
+      line.textContent = '';
+      line.classList.add('is-visible', 'is-typing');
+      let cursor = 0;
+      const typeNext = () => {
+        line.textContent = text.slice(0, cursor + 1);
+        const char = text[cursor];
+        if (char && char !== ' ') playTerminalTick();
+        cursor += 1;
+        if (cursor < text.length) {
+          const charDelay = char === '.' ? 92 : char === '/' ? 66 : 38 + Math.round(Math.random() * 22);
+          window.setTimeout(typeNext, charDelay);
+          return;
+        }
+        line.classList.remove('is-typing');
+        if (typeof done === 'function') window.setTimeout(done, 230);
+      };
+      typeNext();
     }, delay);
   };
 
@@ -147,11 +200,17 @@
       line.textContent = '';
       line.classList.remove('is-visible');
     });
-    bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 260 + index * 420));
-    window.setTimeout(() => boot.classList.remove('is-syncing'), 2250);
-    window.setTimeout(() => boot.classList.add('is-glitching'), 5350);
-    window.setTimeout(() => boot.classList.add('is-blackout'), 6100);
-    window.setTimeout(finishBoot, 7150);
+    let lineDelay = 320;
+    texts.forEach((text, index) => {
+      const line = bootLines[index];
+      if (!line) return;
+      typeLine(line, text, lineDelay);
+      lineDelay += Math.max(560, text.length * 52) + 310;
+    });
+    window.setTimeout(() => boot.classList.remove('is-syncing'), 2600);
+    window.setTimeout(() => boot.classList.add('is-glitching'), 7200);
+    window.setTimeout(() => boot.classList.add('is-blackout'), 7950);
+    window.setTimeout(finishBoot, 9050);
   };
 
   const afterAccess = (callback) => {
