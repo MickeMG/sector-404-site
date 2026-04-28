@@ -131,21 +131,24 @@
     }
 
     playBootAudio();
-    boot.classList.add('is-running');
+    boot.classList.add('is-running', 'is-syncing');
     const texts = [
+      'syncing dead carrier...',
+      'signal contact unstable...',
+      'handshake slipping...',
       'booting unauthorized mirror...',
       'decrypting recovered manifest...',
-      'injecting sector map...',
       'access leak stabilized.',
     ];
     bootLines.forEach((line) => {
       line.textContent = '';
       line.classList.remove('is-visible');
     });
-    bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 260 + index * 430));
-    window.setTimeout(() => boot.classList.add('is-glitching'), 2850);
-    window.setTimeout(() => boot.classList.add('is-blackout'), 3450);
-    window.setTimeout(finishBoot, 4550);
+    bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 220 + index * 360));
+    window.setTimeout(() => boot.classList.remove('is-syncing'), 1850);
+    window.setTimeout(() => boot.classList.add('is-glitching'), 3300);
+    window.setTimeout(() => boot.classList.add('is-blackout'), 3950);
+    window.setTimeout(finishBoot, 5050);
   };
 
   const afterAccess = (callback) => {
