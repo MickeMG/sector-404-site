@@ -3209,6 +3209,15 @@ p, li, small { text-wrap: pretty; }
   background: #000;
 }
 
+.breach-boot.is-connected {
+  z-index: 2000;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: grid !important;
+  background: #000 !important;
+  animation: none !important;
+}
+
 .breach-boot.is-blackout::before,
 .breach-boot.is-blackout::after,
 .breach-boot.is-blackout .breach-boot__panel {
@@ -3217,7 +3226,7 @@ p, li, small { text-wrap: pretty; }
 
 .breach-boot__connected {
   position: relative;
-  z-index: 4;
+  z-index: 40;
   display: none;
   color: rgba(239,255,250,.98);
   font-family: var(--font-display);
@@ -3237,8 +3246,10 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot__connected.is-visible {
-  display: block;
-  animation: connectedArrival 1.15s steps(2, end) forwards, connectedHold 1.9s ease forwards;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: connectedArrival 1.15s steps(2, end) forwards, connectedHold 2.45s ease forwards;
 }
 
 .breach-boot__connected.is-visible::before,
@@ -3264,7 +3275,7 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot__connected.is-fading {
-  animation: connectedExit .56s steps(3, end) forwards;
+  animation: connectedExit .74s steps(3, end) forwards;
 }
 
 .breach-boot.is-done { display: none; }

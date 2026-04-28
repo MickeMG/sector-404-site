@@ -173,7 +173,7 @@
   let bootStarted = false;
   const finishBoot = () => {
     boot?.classList.add('is-done');
-    connected?.classList.remove('is-visible');
+    connected?.classList.remove('is-visible', 'is-fading');
     document.documentElement.classList.remove('sector-login-sequence');
     document.documentElement.classList.add('sector-archive-reveal');
     window.setTimeout(() => document.documentElement.classList.remove('sector-archive-reveal'), 1900);
@@ -193,7 +193,7 @@
 
     playBootAudio();
     boot.classList.add('is-running', 'is-syncing');
-    connected?.classList.remove('is-visible');
+    connected?.classList.remove('is-visible', 'is-fading');
     const texts = [
       'syncing dead carrier...',
       'CONECTING......',
@@ -225,8 +225,8 @@
       boot.classList.add('is-connected');
       connected?.classList.add('is-visible');
     }, 8400);
-    window.setTimeout(() => connected?.classList.add('is-fading'), 9700);
-    window.setTimeout(finishBoot, 10450);
+    window.setTimeout(() => connected?.classList.add('is-fading'), 10400);
+    window.setTimeout(finishBoot, 11400);
   };
 
   const afterAccess = (callback) => {
