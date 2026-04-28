@@ -27,14 +27,14 @@
   --yellow: #c9a448;
   --oil: #050607;
   --max: 1180px;
-  --base: "/sector-404-site";
-  --img-scrap: url('/sector-404-site/assets/sector404/sector-404-rpi-scrap-pack---1b6695c2-dff0-468d-830a-d4350caa859c.jpg');
-  --img-salvage: url('/sector-404-site/assets/sector404/sector-404-cyborg-salvage-table---362c4dbf-ff75-4cc2-83e7-8b9cdb3b554a.png');
-  --img-dump: url('/sector-404-site/assets/sector404/sector-404-rpi-dump-corridor---2946fdd1-78ec-4e0b-8ff9-2ae5adafe51d.png');
-  --img-shrine: url('/sector-404-site/assets/sector404/sector-404-robot-remnant-shrine---529bdb0d-e954-4288-a20f-243bd6f4373a.png');
-  --img-biometric: url('/sector-404-site/assets/sector404/sector-404-biometric-trace-poster.jpg');
-  --img-mask-residue: url('/sector-404-site/assets/sector404/sector-404-mask-residue.png');
-  --img-black-corridor: url('/sector-404-site/assets/sector404/sector-404-black-infrastructure-corridor.jpg');
+  --base: "";
+  --img-scrap: url('/assets/sector404/sector-404-rpi-scrap-pack---1b6695c2-dff0-468d-830a-d4350caa859c.jpg');
+  --img-salvage: url('/assets/sector404/sector-404-cyborg-salvage-table---362c4dbf-ff75-4cc2-83e7-8b9cdb3b554a.png');
+  --img-dump: url('/assets/sector404/sector-404-rpi-dump-corridor---2946fdd1-78ec-4e0b-8ff9-2ae5adafe51d.png');
+  --img-shrine: url('/assets/sector404/sector-404-robot-remnant-shrine---529bdb0d-e954-4288-a20f-243bd6f4373a.png');
+  --img-biometric: url('/assets/sector404/sector-404-biometric-trace-poster.jpg');
+  --img-mask-residue: url('/assets/sector404/sector-404-mask-residue.png');
+  --img-black-corridor: url('/assets/sector404/sector-404-black-infrastructure-corridor.jpg');
 }
 
 * { box-sizing: border-box; }
@@ -926,8 +926,8 @@ p, li, small { text-wrap: pretty; }
 .image-card > * { position: relative; z-index: 1; text-shadow: 0 1px 16px rgba(0,0,0,.9); }
 .image-card { background: linear-gradient(180deg, rgba(2,4,5,.06), rgba(2,4,5,.76)); }
 .image-card.image-corridor { --img: var(--img-black-corridor); }
-.image-card.image-archive { --img: url('/sector-404-site/assets/sector404/env-archive-room.jpg'); }
-.image-card.image-table { --img: url('/sector-404-site/assets/sector404/env-evidence-table.jpg'); }
+.image-card.image-archive { --img: url('/assets/sector404/env-archive-room.jpg'); }
+.image-card.image-table { --img: url('/assets/sector404/env-evidence-table.jpg'); }
 .image-card.image-scrap { --img: var(--img-scrap); }
 .image-card.image-salvage { --img: var(--img-salvage); }
 .image-card.image-dump { --img: var(--img-dump); }
@@ -1251,7 +1251,7 @@ p, li, small { text-wrap: pretty; }
   background:
     linear-gradient(90deg, rgba(2,4,5,.84), rgba(2,4,5,.16), rgba(2,4,5,.82)),
     linear-gradient(180deg, rgba(2,4,5,.04), rgba(2,4,5,.58)),
-    url('/sector-404-site/assets/sector404/env-archive-room.jpg') center / cover no-repeat;
+    url('/assets/sector404/env-archive-room.jpg') center / cover no-repeat;
   filter: saturate(1.18) contrast(1.08) brightness(1.1);
 }
 .archive-room::before {
@@ -1327,7 +1327,7 @@ p, li, small { text-wrap: pretty; }
 }
 .breach-tile > * { position: relative; z-index: 2; }
 .corridor-tile { --img: var(--img-black-corridor); }
-.archive-tile { --img: url('/sector-404-site/assets/sector404/env-archive-room.jpg'); }
+.archive-tile { --img: url('/assets/sector404/env-archive-room.jpg'); }
 .breach-tile span {
   align-self: start;
   color: rgba(255,39,79,.76);
@@ -1425,7 +1425,7 @@ p, li, small { text-wrap: pretty; }
   background:
     linear-gradient(90deg, rgba(2,4,5,.68), rgba(2,4,5,.06), rgba(2,4,5,.62)),
     linear-gradient(180deg, rgba(2,4,5,.04), rgba(2,4,5,.58)),
-    url('/sector-404-site/assets/sector404/env-evidence-table.jpg') center / cover no-repeat;
+    url('/assets/sector404/env-evidence-table.jpg') center / cover no-repeat;
   filter: saturate(1.14) contrast(1.08) brightness(1.08);
 }
 .evidence-table.photo-table::before {

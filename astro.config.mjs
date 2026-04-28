@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages project site: https://MickeMG.github.io/sector-404-site
+// Custom domain: https://sector404.net
 export default defineConfig({
-  site: 'https://MickeMG.github.io',
-  base: '/sector-404-site',
+  site: 'https://sector404.net',
+  base: '/',
 });

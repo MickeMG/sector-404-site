@@ -5,17 +5,17 @@ price_sek: null
 year: 2024
 medium: "Mixed media sculpture"
 dimensions: ""
-cover: "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-09-front-full.jpg"
+cover: "/assets/sector404/works/cyberhead/cyberhead-09-front-full.jpg"
 gallery:
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-09-front-full.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-03-profile-full.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-02-face-close.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-01-rear-system.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-05-neck-system.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-06-eye-detail.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-07-side-detail.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-08-eyes-detail.jpg"
-  - "/sector-404-site/assets/sector404/works/cyberhead/cyberhead-04-nameplate.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-09-front-full.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-03-profile-full.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-02-face-close.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-01-rear-system.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-05-neck-system.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-06-eye-detail.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-07-side-detail.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-08-eyes-detail.jpg"
+  - "/assets/sector404/works/cyberhead/cyberhead-04-nameplate.jpg"
 tags: ["sold", "sculpture", "cyberhead", "biomechanical", "mask", "recovered-artifact"]
 ---
 

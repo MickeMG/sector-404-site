@@ -5,18 +5,18 @@ price_sek: null
 year: 2025
 medium: "Mixed media sculpture"
 dimensions: ""
-cover: "/sector-404-site/assets/sector404/works/emanu/emanu-01-front.jpg"
+cover: "/assets/sector404/works/emanu/emanu-01-front.jpg"
 gallery:
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-01-front.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-02-mask-detail.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-03-left-system.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-04-mask-front.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-05-signature-plate.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-06-low-angle.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-07-cable-entry.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-08-nameplate.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-09-right-system.jpg"
-  - "/sector-404-site/assets/sector404/works/emanu/emanu-10-object-view.jpg"
+  - "/assets/sector404/works/emanu/emanu-01-front.jpg"
+  - "/assets/sector404/works/emanu/emanu-02-mask-detail.jpg"
+  - "/assets/sector404/works/emanu/emanu-03-left-system.jpg"
+  - "/assets/sector404/works/emanu/emanu-04-mask-front.jpg"
+  - "/assets/sector404/works/emanu/emanu-05-signature-plate.jpg"
+  - "/assets/sector404/works/emanu/emanu-06-low-angle.jpg"
+  - "/assets/sector404/works/emanu/emanu-07-cable-entry.jpg"
+  - "/assets/sector404/works/emanu/emanu-08-nameplate.jpg"
+  - "/assets/sector404/works/emanu/emanu-09-right-system.jpg"
+  - "/assets/sector404/works/emanu/emanu-10-object-view.jpg"
 tags: ["sold", "sculpture", "emanu", "biomechanical", "mask", "recovered-artifact"]
 ---
 
