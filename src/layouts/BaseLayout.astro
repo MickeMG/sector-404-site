@@ -12,6 +12,18 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
     <meta name="theme-color" content="#020405" />
     <title>{title}</title>
     <link rel="stylesheet" href={`${base}styles/global.css`} />
+    <script is:inline>
+      document.documentElement.classList.add('access-gate-pending');
+      try {
+        const storedUser = localStorage.getItem('sector404_access_user') || '';
+        const allowedUsers = ['micke', 'mickemg', 'noodle', 'kim', 'darko', 'rachell', 'julian'];
+        const normalizedUser = storedUser.trim().toLowerCase().replace(/^@+/, '');
+        if (allowedUsers.includes(normalizedUser)) {
+          document.documentElement.classList.add('access-granted');
+        }
+      } catch (_) {}
+    </script>
+    <script src={`${base}access-gate.js`} defer></script>
   </head>
   <body>
     <div class="site-shell">
