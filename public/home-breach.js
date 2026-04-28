@@ -136,9 +136,10 @@
     boot.classList.add('is-running', 'is-syncing');
     const texts = [
       'syncing dead carrier...',
-      'signal contact unstable...',
+      'CONECTING......',
+      'locating hidden node // NULL-7',
+      'node response: buried / alive',
       'handshake slipping...',
-      'booting unauthorized mirror...',
       'decrypting recovered manifest...',
       'access leak stabilized.',
     ];
@@ -146,11 +147,11 @@
       line.textContent = '';
       line.classList.remove('is-visible');
     });
-    bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 220 + index * 360));
-    window.setTimeout(() => boot.classList.remove('is-syncing'), 1850);
-    window.setTimeout(() => boot.classList.add('is-glitching'), 3300);
-    window.setTimeout(() => boot.classList.add('is-blackout'), 3950);
-    window.setTimeout(finishBoot, 5050);
+    bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 260 + index * 420));
+    window.setTimeout(() => boot.classList.remove('is-syncing'), 2250);
+    window.setTimeout(() => boot.classList.add('is-glitching'), 5350);
+    window.setTimeout(() => boot.classList.add('is-blackout'), 6100);
+    window.setTimeout(finishBoot, 7150);
   };
 
   const afterAccess = (callback) => {
