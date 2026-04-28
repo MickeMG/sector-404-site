@@ -3068,3 +3068,102 @@ p, li, small { text-wrap: pretty; }
     transition: none !important;
   }
 }
+
+/* Login breach ritual: terminal alone, rupture, blackout, archive reveal */
+.sector-login-sequence body > .site-shell {
+  visibility: hidden;
+}
+
+.breach-boot.is-running {
+  background: #000;
+  backdrop-filter: none;
+  animation: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+.breach-boot.is-running::before,
+.breach-boot.is-running::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.breach-boot.is-running::before {
+  background: repeating-linear-gradient(180deg, rgba(143,255,234,.035) 0 1px, transparent 1px 7px);
+  opacity: .38;
+}
+
+.breach-boot.is-running::after {
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgba(143,255,234,.09) 12.2% 12.7%, transparent 13%),
+    linear-gradient(180deg, transparent 0 49%, rgba(255,39,79,.12) 49.2% 49.7%, transparent 50%);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.breach-boot.is-running .breach-boot__panel {
+  position: relative;
+  z-index: 2;
+  border-color: rgba(143,255,234,.48);
+  background: rgba(0,0,0,.94);
+  box-shadow: 0 0 0 1px rgba(143,255,234,.08), 0 0 42px rgba(143,255,234,.12);
+}
+
+.breach-boot.is-glitching {
+  animation: terminalRupture .62s steps(2, end) forwards;
+}
+
+.breach-boot.is-glitching::after {
+  animation: terminalTear .62s steps(2, end) forwards;
+}
+
+.breach-boot.is-glitching .breach-boot__panel {
+  animation: terminalPanelTear .62s steps(2, end) forwards;
+}
+
+.breach-boot.is-blackout {
+  background: #000;
+}
+
+.breach-boot.is-blackout::before,
+.breach-boot.is-blackout::after,
+.breach-boot.is-blackout .breach-boot__panel {
+  opacity: 0;
+}
+
+.breach-boot.is-done { display: none; }
+
+@keyframes terminalRupture {
+  0% { filter: none; }
+  18% { filter: contrast(2.4) brightness(1.8) hue-rotate(-18deg); transform: translateX(0); }
+  32% { filter: invert(.82) contrast(3.2); transform: translateX(-10px); }
+  48% { filter: saturate(4) contrast(2.6); transform: translateX(13px); }
+  66% { filter: brightness(.05) contrast(5); transform: translateX(-4px); }
+  100% { filter: brightness(0); transform: translateX(0); }
+}
+
+@keyframes terminalTear {
+  0% { opacity: 0; transform: translateX(0); }
+  20% { opacity: .9; transform: translateX(-7vw); }
+  42% { opacity: .75; transform: translateX(8vw); }
+  70% { opacity: 1; transform: translateX(-3vw); }
+  100% { opacity: 0; transform: translateX(0); }
+}
+
+@keyframes terminalPanelTear {
+  0% { transform: translate(0,0) skew(0); opacity: 1; }
+  20% { transform: translate(18px,-4px) skew(8deg); opacity: .92; }
+  42% { transform: translate(-22px,3px) skew(-10deg); opacity: .7; }
+  64% { transform: translate(6px,0) scaleY(.72); opacity: .34; }
+  100% { transform: translate(0,0) scaleY(.04); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breach-boot.is-glitching,
+  .breach-boot.is-glitching::after,
+  .breach-boot.is-glitching .breach-boot__panel {
+    animation: none !important;
+  }
+}

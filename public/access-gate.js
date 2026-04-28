@@ -54,7 +54,6 @@
 
     if (allowedUsers.includes(username)) {
       if (window.sector404PlayBootAudio) window.sector404PlayBootAudio();
-      if (window.sector404StartJulianArchive) window.sector404StartJulianArchive();
       try {
         localStorage.removeItem(storageKey);
         sessionStorage.removeItem(storageKey);

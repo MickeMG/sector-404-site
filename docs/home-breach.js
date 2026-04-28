@@ -113,12 +113,20 @@
   };
 
   let bootStarted = false;
+  const finishBoot = () => {
+    boot?.classList.add('is-done');
+    document.documentElement.classList.remove('sector-login-sequence');
+    document.dispatchEvent(new CustomEvent('sector404:boot-complete'));
+  };
+
   const startBoot = () => {
     if (bootStarted || !boot) return;
     bootStarted = true;
+    document.documentElement.classList.add('sector-login-sequence');
 
     if (reduceMotion) {
       boot.remove();
+      finishBoot();
       return;
     }
 
@@ -135,7 +143,9 @@
       line.classList.remove('is-visible');
     });
     bootLines.forEach((line, index) => setLine(line, texts[index] || 'signal recovered', 260 + index * 430));
-    window.setTimeout(() => boot.classList.add('is-done'), 3000);
+    window.setTimeout(() => boot.classList.add('is-glitching'), 2850);
+    window.setTimeout(() => boot.classList.add('is-blackout'), 3450);
+    window.setTimeout(finishBoot, 4550);
   };
 
   const afterAccess = (callback) => {

@@ -276,7 +276,7 @@
   });
 
   state.audio.addEventListener('ended', () => loadTrack(state.index + 1, state.wantsAutoplay || state.isPlaying));
-  document.addEventListener('sector404:access-granted', armFromAccess);
+  document.addEventListener('sector404:boot-complete', armFromAccess);
   state.audio.addEventListener('play', () => { state.isPlaying = true; render(); });
   state.audio.addEventListener('pause', () => { state.isPlaying = false; render(); });
   state.audio.addEventListener('timeupdate', save);
