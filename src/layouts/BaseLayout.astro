@@ -15,7 +15,7 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
     <script is:inline>
       document.documentElement.classList.add('access-gate-pending');
       try {
-        const storedUser = localStorage.getItem('sector404_access_user') || '';
+        const storedUser = sessionStorage.getItem('sector404_access_user') || '';
         const allowedUsers = ['micke', 'mickemg', 'noodle', 'kim', 'darko', 'rachell', 'julian'];
         const normalizedUser = storedUser.trim().toLowerCase().replace(/^@+/, '');
         if (allowedUsers.includes(normalizedUser)) {
@@ -24,6 +24,9 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
       } catch (_) {}
     </script>
     <script src={`${base}access-gate.js`} defer></script>
+    <script src={`${base}home-breach.js`} defer></script>
+    <script src={`${base}image-inspector.js`} defer></script>
+    <script src={`${base}audio-player.js`} defer></script>
   </head>
   <body>
     <div class="site-shell">
@@ -40,6 +43,21 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
       </div>
       <header class="site-header">
         <a class="mark" href={base}>SECTOR 404</a>
+        <div class="sector-player" data-sector-player data-playlist-url={`${base}assets/audio/julian/playlist.json`} aria-label="Julian audio player">
+          <audio data-player-audio preload="metadata"></audio>
+          <span class="sector-player__signal" aria-hidden="true"></span>
+          <div class="sector-player__readout">
+            <span class="sector-player__label">JULIAN_AUDIO</span>
+            <span class="sector-player__title" data-player-title>AWAITING JULIAN MP3</span>
+            <span class="sector-player__status" data-player-status>NO SIGNAL</span>
+          </div>
+          <div class="sector-player__controls">
+            <button type="button" data-player-prev aria-label="Previous Julian track" title="Previous Julian track">◀◀</button>
+            <button type="button" data-player-play aria-label="Play or stop Julian track" title="Play or stop Julian track">▶</button>
+            <button type="button" data-player-next aria-label="Next Julian track" title="Next Julian track">▶▶</button>
+            <button type="button" data-player-mute aria-label="Mute or unmute Julian audio" title="Mute or unmute Julian audio">◉</button>
+          </div>
+        </div>
         <nav aria-label="Primary navigation">
           <a href={`${base}works/`} data-text="Artifacts"><span>Artifacts</span></a>
           <a href={`${base}signals/`} data-text="Signals"><span>Signals</span></a>

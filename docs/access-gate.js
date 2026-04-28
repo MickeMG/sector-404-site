@@ -11,7 +11,8 @@
 
   const normalize = (value) => value.trim().toLowerCase().replace(/^@+/, '');
   const storageKey = 'sector404_access_user';
-  const existing = normalize(localStorage.getItem(storageKey) || '');
+  try { localStorage.removeItem(storageKey); } catch (_) {}
+  const existing = normalize(sessionStorage.getItem(storageKey) || '');
 
   if (allowedUsers.includes(existing)) {
     document.documentElement.classList.add('access-granted');
@@ -51,9 +52,12 @@
     const username = normalize(input.value);
 
     if (allowedUsers.includes(username)) {
-      localStorage.setItem(storageKey, username);
+      if (window.sector404PlayBootAudio) window.sector404PlayBootAudio();
+      if (window.sector404StartJulianArchive) window.sector404StartJulianArchive();
+      sessionStorage.setItem(storageKey, username);
       document.documentElement.classList.remove('access-locked');
       document.documentElement.classList.add('access-granted');
+      document.dispatchEvent(new CustomEvent('sector404:access-granted', { detail: { username } }));
       gate.classList.add('access-gate--opening');
       setTimeout(() => gate.remove(), 420);
       return;
