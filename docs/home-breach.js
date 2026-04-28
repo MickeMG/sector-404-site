@@ -116,6 +116,8 @@
   const finishBoot = () => {
     boot?.classList.add('is-done');
     document.documentElement.classList.remove('sector-login-sequence');
+    document.documentElement.classList.add('sector-archive-reveal');
+    window.setTimeout(() => document.documentElement.classList.remove('sector-archive-reveal'), 1900);
     document.dispatchEvent(new CustomEvent('sector404:boot-complete'));
   };
 
