@@ -86,7 +86,7 @@
     try { playBootAudio(); } catch (_) {}
   };
 
-  const setupTerminalTick = () => {
+  const setupTerminalPrinter = () => {
     const source = (() => {
       const script = document.querySelector('script[src$="home-breach.js"]');
       const scriptUrl = script?.getAttribute('src') || '/home-breach.js';
@@ -97,32 +97,39 @@
       }
     })();
 
-    const pool = [];
-    let pointer = 0;
+    let audio;
+    let started = false;
 
     const ensure = () => {
-      if (pool.length) return;
-      for (let i = 0; i < 6; i += 1) {
-        const a = new Audio(source);
-        a.preload = 'auto';
-        a.volume = 0.34;
-        pool.push(a);
-      }
+      if (audio) return audio;
+      audio = new Audio(source);
+      audio.preload = 'auto';
+      audio.volume = 0.55;
+      return audio;
     };
 
-    return () => {
-      try {
-        ensure();
-        const a = pool[pointer % pool.length];
-        pointer += 1;
-        a.currentTime = 0;
-        const playPromise = a.play();
-        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
-      } catch (_) {}
+    return {
+      start() {
+        if (started) return;
+        started = true;
+        try {
+          const a = ensure();
+          a.currentTime = 0;
+          const playPromise = a.play();
+          if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+        } catch (_) {}
+      },
+      stop() {
+        try {
+          if (!audio) return;
+          audio.pause();
+          audio.currentTime = 0;
+        } catch (_) {}
+      },
     };
   };
 
-  const playTerminalTick = setupTerminalTick();
+  const terminalPrinter = setupTerminalPrinter();
 
   const root = document.querySelector('[data-breach-home]');
   if (!root) return;
@@ -151,7 +158,6 @@
       const typeNext = () => {
         line.textContent = text.slice(0, cursor + 1);
         const char = text[cursor];
-        if (char && char !== ' ') playTerminalTick();
         cursor += 1;
         if (cursor < text.length) {
           const charDelay = char === '.' ? 92 : char === '/' ? 66 : 38 + Math.round(Math.random() * 22);
@@ -198,8 +204,9 @@
     ];
     bootLines.forEach((line) => {
       line.textContent = '';
-      line.classList.remove('is-visible');
+      line.classList.remove('is-visible', 'is-typing');
     });
+    terminalPrinter.start();
     let lineDelay = 320;
     texts.forEach((text, index) => {
       const line = bootLines[index];
@@ -209,7 +216,10 @@
     });
     window.setTimeout(() => boot.classList.remove('is-syncing'), 2600);
     window.setTimeout(() => boot.classList.add('is-glitching'), 7200);
-    window.setTimeout(() => boot.classList.add('is-blackout'), 7950);
+    window.setTimeout(() => {
+      terminalPrinter.stop();
+      boot.classList.add('is-blackout');
+    }, 7950);
     window.setTimeout(finishBoot, 9050);
   };
 
