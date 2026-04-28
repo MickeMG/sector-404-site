@@ -3124,23 +3124,29 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot.is-running .breach-boot__panel span {
-  color: rgba(242,255,251,.98);
-  font-weight: 600;
+  color: rgba(224,255,249,.96);
+  font-weight: 560;
+  letter-spacing: .135em;
   text-shadow:
-    0 0 2px rgba(242,255,251,.95),
-    0 0 7px rgba(143,255,234,.88),
-    0 0 18px rgba(143,255,234,.48),
-    0 0 36px rgba(143,255,234,.18);
+    .55px 0 0 rgba(255,42,84,.42),
+    -.55px 0 0 rgba(60,214,255,.38),
+    0 0 5px rgba(143,255,234,.46),
+    0 0 13px rgba(143,255,234,.18);
 }
 
 .breach-boot.is-running .breach-boot__panel span.is-visible {
   -webkit-text-fill-color: transparent;
   background:
-    repeating-linear-gradient(180deg, rgba(242,255,251,1) 0 .08em, rgba(177,255,239,.78) .08em .16em, rgba(48,146,135,.62) .16em .23em, rgba(236,255,249,.96) .23em .31em),
-    linear-gradient(90deg, rgba(242,255,251,.98), rgba(143,255,234,.93) 52%, rgba(255,237,241,.86));
+    repeating-linear-gradient(90deg,
+      rgba(255,55,84,.9) 0 .045em,
+      rgba(143,255,234,.95) .045em .09em,
+      rgba(84,150,255,.72) .09em .135em,
+      rgba(230,255,249,.96) .135em .19em),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.9) 0 .055em, rgba(168,255,240,.84) .055em .13em, rgba(48,92,92,.42) .13em .18em),
+    linear-gradient(90deg, rgba(230,255,249,.98), rgba(143,255,234,.9) 58%, rgba(203,233,255,.82));
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 0 5px rgba(143,255,234,.72)) drop-shadow(0 0 16px rgba(143,255,234,.32));
+  filter: drop-shadow(0 0 3px rgba(143,255,234,.48)) drop-shadow(0 0 10px rgba(64,210,255,.18));
 }
 
 .breach-boot.is-running .breach-boot__panel span.is-visible::after {
@@ -3148,12 +3154,14 @@ p, li, small { text-wrap: pretty; }
   position: absolute;
   left: 0;
   right: 0;
-  top: .06em;
-  bottom: .06em;
+  top: .03em;
+  bottom: .03em;
   pointer-events: none;
-  background: repeating-linear-gradient(180deg, transparent 0 .22em, rgba(0,0,0,.34) .22em .31em);
-  mix-blend-mode: multiply;
-  opacity: .6;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,0,55,.2) 0 1px, rgba(0,255,220,.16) 1px 2px, rgba(80,140,255,.14) 2px 3px, transparent 3px 5px),
+    repeating-linear-gradient(180deg, transparent 0 .34em, rgba(0,0,0,.26) .34em .42em);
+  mix-blend-mode: overlay;
+  opacity: .72;
 }
 
 .breach-boot.is-running .breach-boot__panel span.is-visible::before {
