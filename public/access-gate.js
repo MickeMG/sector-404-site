@@ -26,6 +26,7 @@
       <video class="access-gate__video" autoplay muted loop playsinline preload="auto">
         <source src="/assets/video/sector-404-symbol.mp4" type="video/mp4" />
       </video>
+      <img class="access-gate__wordmark" src="/assets/image/sector-404-access-wordmark.jpg" alt="" />
     </div>
     <div class="access-gate__panel">
       <p class="access-gate__kicker">UNAUTHORIZED MIRROR</p>
