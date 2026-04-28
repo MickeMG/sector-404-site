@@ -2449,7 +2449,9 @@ p, li, small { text-wrap: pretty; }
   transition: opacity .22s ease;
 }
 
-.access-gate-pending:not(.access-granted) .global-flashlight {
+.access-gate-pending:not(.access-granted) .global-flashlight,
+.sector-login-sequence .global-flashlight,
+.sector-archive-reveal .global-flashlight {
   opacity: 0;
 }
 
@@ -3091,8 +3093,11 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot.is-running::before {
-  background: repeating-linear-gradient(180deg, rgba(143,255,234,.035) 0 1px, transparent 1px 7px);
-  opacity: .38;
+  background:
+    repeating-linear-gradient(180deg, rgba(143,255,234,.13) 0 1px, rgba(143,255,234,.035) 1px 2px, transparent 2px 6px),
+    repeating-linear-gradient(180deg, transparent 0 17px, rgba(255,39,79,.075) 17px 18px, transparent 18px 29px);
+  opacity: .62;
+  mix-blend-mode: screen;
 }
 
 .breach-boot.is-running::after {
@@ -3106,9 +3111,24 @@ p, li, small { text-wrap: pretty; }
 .breach-boot.is-running .breach-boot__panel {
   position: relative;
   z-index: 2;
-  border-color: rgba(143,255,234,.48);
+  border-color: rgba(143,255,234,.56);
   background: rgba(0,0,0,.94);
-  box-shadow: 0 0 0 1px rgba(143,255,234,.08), 0 0 42px rgba(143,255,234,.12);
+  box-shadow: 0 0 0 1px rgba(143,255,234,.1), 0 0 48px rgba(143,255,234,.17), inset 0 0 22px rgba(143,255,234,.045);
+}
+
+.breach-boot.is-running .breach-boot__panel p {
+  color: rgba(255,39,79,.9);
+  text-shadow: 0 0 7px rgba(255,39,79,.62), 0 0 18px rgba(255,39,79,.28);
+}
+
+.breach-boot.is-running .breach-boot__panel span {
+  color: rgba(236,255,249,.94);
+  text-shadow: 0 0 5px rgba(143,255,234,.72), 0 0 16px rgba(143,255,234,.34), 0 0 31px rgba(143,255,234,.14);
+}
+
+.breach-boot.is-running .breach-boot__panel span.is-visible::before {
+  color: var(--cyan);
+  text-shadow: 0 0 7px rgba(143,255,234,.9), 0 0 18px rgba(143,255,234,.42);
 }
 
 .breach-boot.is-glitching {
