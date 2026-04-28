@@ -49,6 +49,32 @@ html {
 }
 body {
   min-height: 100vh;
+
+html,
+body,
+body * {
+  cursor: default;
+}
+
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+summary,
+[data-inspector-image] {
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea {
+  cursor: text;
+}
+
   margin: 0;
   color: var(--text);
   font-family: var(--font-body);
