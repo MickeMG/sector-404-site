@@ -11,13 +11,10 @@
 
   const normalize = (value) => value.trim().toLowerCase().replace(/^@+/, '');
   const storageKey = 'sector404_access_user';
-  try { localStorage.removeItem(storageKey); } catch (_) {}
-  const existing = normalize(sessionStorage.getItem(storageKey) || '');
-
-  if (allowedUsers.includes(existing)) {
-    document.documentElement.classList.add('access-granted');
-    return;
-  }
+  try {
+    localStorage.removeItem(storageKey);
+    sessionStorage.removeItem(storageKey);
+  } catch (_) {}
 
   document.documentElement.classList.add('access-locked');
 
@@ -54,7 +51,10 @@
     if (allowedUsers.includes(username)) {
       if (window.sector404PlayBootAudio) window.sector404PlayBootAudio();
       if (window.sector404StartJulianArchive) window.sector404StartJulianArchive();
-      sessionStorage.setItem(storageKey, username);
+      try {
+        localStorage.removeItem(storageKey);
+        sessionStorage.removeItem(storageKey);
+      } catch (_) {}
       document.documentElement.classList.remove('access-locked');
       document.documentElement.classList.add('access-granted');
       document.dispatchEvent(new CustomEvent('sector404:access-granted', { detail: { username } }));

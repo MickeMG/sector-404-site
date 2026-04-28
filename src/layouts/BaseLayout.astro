@@ -15,12 +15,8 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
     <script is:inline>
       document.documentElement.classList.add('access-gate-pending');
       try {
-        const storedUser = sessionStorage.getItem('sector404_access_user') || '';
-        const allowedUsers = ['micke', 'mickemg', 'noodle', 'kim', 'darko', 'rachell', 'julian'];
-        const normalizedUser = storedUser.trim().toLowerCase().replace(/^@+/, '');
-        if (allowedUsers.includes(normalizedUser)) {
-          document.documentElement.classList.add('access-granted');
-        }
+        localStorage.removeItem('sector404_access_user');
+        sessionStorage.removeItem('sector404_access_user');
       } catch (_) {}
     </script>
     <script src={`${base}access-gate.js`} defer></script>
