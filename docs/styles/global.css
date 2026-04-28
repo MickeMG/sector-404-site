@@ -2311,7 +2311,7 @@ p, li, small { text-wrap: pretty; }
   max-width: 72vw;
   height: auto;
   display: block;
-  margin-top: 0;
+  margin-top: clamp(-5.2rem, -9vh, -2.4rem);
   opacity: .95;
   mix-blend-mode: screen;
   filter: contrast(1.12) brightness(.95);
