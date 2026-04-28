@@ -2,6 +2,8 @@
 const { title = 'SECTOR 404', description = 'An unlisted access point for unauthorized artifacts, infected signals and recovered transmissions that should not be visible from the outside.' } = Astro.props;
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const assetVersion = 'a0b9042-r2';
+const versioned = (path: string) => `${base}${path}?v=${assetVersion}`;
 ---
 <!doctype html>
 <html lang="en">
@@ -11,7 +13,7 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#020405" />
     <title>{title}</title>
-    <link rel="stylesheet" href={`${base}styles/global.css`} />
+    <link rel="stylesheet" href={versioned('styles/global.css')} />
     <script is:inline>
       document.documentElement.classList.add('access-gate-pending');
       try {
@@ -19,10 +21,10 @@ const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
         sessionStorage.removeItem('sector404_access_user');
       } catch (_) {}
     </script>
-    <script src={`${base}access-gate.js`} defer></script>
-    <script src={`${base}home-breach.js`} defer></script>
-    <script src={`${base}image-inspector.js`} defer></script>
-    <script src={`${base}audio-player.js`} defer></script>
+    <script src={versioned('access-gate.js')} defer></script>
+    <script src={versioned('home-breach.js')} defer></script>
+    <script src={versioned('image-inspector.js')} defer></script>
+    <script src={versioned('audio-player.js')} defer></script>
   </head>
   <body>
     <div class="breach-boot" data-breach-boot aria-hidden="true">
