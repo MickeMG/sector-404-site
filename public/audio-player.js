@@ -258,7 +258,7 @@
     const url = new URL(anchor.href, window.location.href);
     if (url.origin !== window.location.origin) return false;
     if (url.hash && url.pathname === window.location.pathname) return false;
-    return true;
+    return document.documentElement.classList.contains('access-granted');
   };
 
   document.addEventListener('click', async (event) => {

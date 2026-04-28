@@ -47,8 +47,6 @@ html {
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 }
-body {
-  min-height: 100vh;
 
 html,
 body,
@@ -75,6 +73,8 @@ textarea {
   cursor: text;
 }
 
+body {
+  min-height: 100vh;
   margin: 0;
   color: var(--text);
   font-family: var(--font-body);
@@ -3145,8 +3145,14 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot.is-running .breach-boot__panel p {
-  color: rgba(255,39,79,.9);
-  text-shadow: 0 0 7px rgba(255,39,79,.62), 0 0 18px rgba(255,39,79,.28);
+  color: rgba(255,55,86,.98);
+  font-weight: 700;
+  text-shadow:
+    0 0 2px rgba(255,210,218,.86),
+    0 0 8px rgba(255,39,79,.86),
+    0 0 20px rgba(255,39,79,.48),
+    0 0 42px rgba(255,39,79,.2);
+  filter: drop-shadow(0 0 9px rgba(255,39,79,.3));
 }
 
 .breach-boot.is-running .breach-boot__panel span {
