@@ -132,13 +132,11 @@
   const terminalPrinter = setupTerminalPrinter();
 
   const root = document.querySelector('[data-breach-home]');
-  if (!root) return;
-
-  const boot = root.querySelector('[data-breach-boot]');
-  const bootLines = Array.from(root.querySelectorAll('[data-breach-line]'));
-  const enter = root.querySelector('[data-breach-enter]');
-  const cursor = root.querySelector('[data-breach-cursor]');
-  const readout = root.querySelector('[data-breach-readout]');
+  const boot = document.querySelector('[data-breach-boot]');
+  const bootLines = Array.from(document.querySelectorAll('[data-breach-line]'));
+  const enter = root?.querySelector('[data-breach-enter]');
+  const cursor = root?.querySelector('[data-breach-cursor]');
+  const readout = root?.querySelector('[data-breach-readout]');
   const routes = Array.from(document.querySelectorAll('[data-breach-route]'));
 
   const messages = [
@@ -261,14 +259,16 @@
     cursor.style.setProperty('--my', `${y}%`);
   };
 
-  root.addEventListener('pointermove', moveCursor, { passive: true });
-  root.addEventListener('pointerleave', () => {
-    if (!cursor) return;
-    cursor.style.setProperty('--mx', '72%');
-    cursor.style.setProperty('--my', '38%');
-  });
+  if (root) {
+    root.addEventListener('pointermove', moveCursor, { passive: true });
+    root.addEventListener('pointerleave', () => {
+      if (!cursor) return;
+      cursor.style.setProperty('--mx', '72%');
+      cursor.style.setProperty('--my', '38%');
+    });
+  }
 
-  if (enter) {
+  if (enter && root) {
     enter.addEventListener('click', (event) => {
       event.preventDefault();
       root.classList.add('breach-home--entered');
