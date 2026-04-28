@@ -133,6 +133,7 @@
 
   const root = document.querySelector('[data-breach-home]');
   const boot = document.querySelector('[data-breach-boot]');
+  const connected = document.querySelector('[data-breach-connected]');
   const bootLines = Array.from(document.querySelectorAll('[data-breach-line]'));
   const enter = root?.querySelector('[data-breach-enter]');
   const cursor = root?.querySelector('[data-breach-cursor]');
@@ -172,6 +173,7 @@
   let bootStarted = false;
   const finishBoot = () => {
     boot?.classList.add('is-done');
+    connected?.classList.remove('is-visible');
     document.documentElement.classList.remove('sector-login-sequence');
     document.documentElement.classList.add('sector-archive-reveal');
     window.setTimeout(() => document.documentElement.classList.remove('sector-archive-reveal'), 1900);
@@ -191,6 +193,7 @@
 
     playBootAudio();
     boot.classList.add('is-running', 'is-syncing');
+    connected?.classList.remove('is-visible');
     const texts = [
       'syncing dead carrier...',
       'CONECTING......',
@@ -218,7 +221,12 @@
       terminalPrinter.stop();
       boot.classList.add('is-blackout');
     }, 7950);
-    window.setTimeout(finishBoot, 9050);
+    window.setTimeout(() => {
+      boot.classList.add('is-connected');
+      connected?.classList.add('is-visible');
+    }, 8400);
+    window.setTimeout(() => connected?.classList.add('is-fading'), 9700);
+    window.setTimeout(finishBoot, 10450);
   };
 
   const afterAccess = (callback) => {

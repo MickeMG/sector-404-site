@@ -2,7 +2,7 @@
 const { title = 'SECTOR 404', description = 'An unlisted access point for unauthorized artifacts, infected signals and recovered transmissions that should not be visible from the outside.' } = Astro.props;
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
-const assetVersion = 'a0b9042-r2';
+const assetVersion = 'connected-r1';
 const versioned = (path: string) => `${base}${path}?v=${assetVersion}`;
 ---
 <!doctype html>
@@ -38,6 +38,7 @@ const versioned = (path: string) => `${base}${path}?v=${assetVersion}`;
         <span data-breach-line></span>
         <span data-breach-line></span>
       </div>
+      <div class="breach-boot__connected" data-breach-connected aria-hidden="true">CONNECTED</div>
     </div>
     <div class="site-shell">
       <div class="skin-layer" aria-hidden="true">

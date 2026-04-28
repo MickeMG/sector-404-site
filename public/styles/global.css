@@ -3215,6 +3215,58 @@ p, li, small { text-wrap: pretty; }
   opacity: 0;
 }
 
+.breach-boot__connected {
+  position: relative;
+  z-index: 4;
+  display: none;
+  color: rgba(239,255,250,.98);
+  font-family: var(--font-display);
+  font-size: clamp(4.6rem, 15vw, 13.5rem);
+  line-height: .78;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow:
+    0 0 3px rgba(239,255,250,.92),
+    0 0 14px rgba(143,255,234,.78),
+    0 0 42px rgba(143,255,234,.36),
+    0 0 90px rgba(255,39,79,.18);
+  filter: drop-shadow(0 0 28px rgba(143,255,234,.34));
+  transform: scaleX(1.08);
+  opacity: 0;
+}
+
+.breach-boot__connected.is-visible {
+  display: block;
+  animation: connectedArrival 1.15s steps(2, end) forwards, connectedHold 1.9s ease forwards;
+}
+
+.breach-boot__connected.is-visible::before,
+.breach-boot__connected.is-visible::after {
+  content: "CONNECTED";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .48;
+  mix-blend-mode: screen;
+}
+
+.breach-boot__connected.is-visible::before {
+  color: rgba(255,39,79,.82);
+  transform: translate(-.045em, .012em);
+  clip-path: inset(0 0 54% 0);
+}
+
+.breach-boot__connected.is-visible::after {
+  color: rgba(143,255,234,.76);
+  transform: translate(.05em, -.015em);
+  clip-path: inset(47% 0 0 0);
+}
+
+.breach-boot__connected.is-fading {
+  animation: connectedExit .56s steps(3, end) forwards;
+}
+
 .breach-boot.is-done { display: none; }
 
 @keyframes terminalRupture {
@@ -3240,6 +3292,29 @@ p, li, small { text-wrap: pretty; }
   42% { transform: translate(-22px,3px) skew(-10deg); opacity: .7; }
   64% { transform: translate(6px,0) scaleY(.72); opacity: .34; }
   100% { transform: translate(0,0) scaleY(.04); opacity: 0; }
+}
+
+@keyframes connectedArrival {
+  0% { opacity: 0; transform: scaleX(1.34) scaleY(.08); filter: brightness(4) contrast(4); letter-spacing: .38em; }
+  12% { opacity: 1; transform: scaleX(.82) scaleY(1.42); filter: invert(.9) contrast(4); }
+  24% { opacity: .18; transform: translateX(-3vw) scaleX(1.2); }
+  36% { opacity: 1; transform: translateX(2vw) scaleX(.96); }
+  52% { opacity: .62; transform: translateX(-.8vw) scaleX(1.11); }
+  70% { opacity: 1; transform: translateX(0) scaleX(1.06); }
+  100% { opacity: 1; transform: translateX(0) scaleX(1.08); filter: brightness(1.08) contrast(1.24); letter-spacing: .04em; }
+}
+
+@keyframes connectedHold {
+  0%, 72% { opacity: 1; }
+  88% { opacity: .78; }
+  100% { opacity: 1; }
+}
+
+@keyframes connectedExit {
+  0% { opacity: 1; transform: translateX(0) scaleX(1.08); }
+  34% { opacity: .92; transform: translateX(3vw) scaleX(.86); filter: contrast(3); }
+  62% { opacity: .28; transform: translateX(-4vw) scaleX(1.22); filter: invert(.7) contrast(5); }
+  100% { opacity: 0; transform: translateX(0) scaleX(.08); filter: brightness(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3357,7 +3432,9 @@ p, li, small { text-wrap: pretty; }
   .breach-boot.is-syncing::before,
   .breach-boot.is-syncing::after,
   .breach-boot.is-syncing .breach-boot__panel,
-  .breach-boot.is-syncing .breach-boot__panel span.is-visible {
+  .breach-boot.is-syncing .breach-boot__panel span.is-visible,
+  .breach-boot__connected.is-visible,
+  .breach-boot__connected.is-fading {
     animation: none !important;
   }
 }
