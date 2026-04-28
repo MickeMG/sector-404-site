@@ -173,6 +173,7 @@
   let bootStarted = false;
   const finishBoot = () => {
     boot?.classList.add('is-done');
+    boot?.classList.remove('is-running', 'is-syncing', 'is-glitching', 'is-blackout', 'is-connected');
     connected?.classList.remove('is-visible', 'is-fading');
     document.documentElement.classList.remove('sector-login-sequence');
     document.documentElement.classList.add('sector-archive-reveal');
@@ -192,6 +193,7 @@
     }
 
     playBootAudio();
+    boot.classList.remove('is-done', 'is-glitching', 'is-blackout', 'is-connected');
     boot.classList.add('is-running', 'is-syncing');
     connected?.classList.remove('is-visible', 'is-fading');
     const texts = [

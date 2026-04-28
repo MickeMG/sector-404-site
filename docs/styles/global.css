@@ -3209,7 +3209,7 @@ p, li, small { text-wrap: pretty; }
   background: #000;
 }
 
-.breach-boot.is-connected {
+.breach-boot.is-connected:not(.is-done) {
   z-index: 2000;
   visibility: visible !important;
   opacity: 1 !important;
@@ -3278,7 +3278,12 @@ p, li, small { text-wrap: pretty; }
   animation: connectedExit .74s steps(3, end) forwards;
 }
 
-.breach-boot.is-done { display: none; }
+.breach-boot.is-done {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 
 @keyframes terminalRupture {
   0% { filter: none; }
