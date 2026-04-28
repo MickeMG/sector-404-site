@@ -2718,9 +2718,11 @@ p, li, small { text-wrap: pretty; }
 
 .breach-boot__panel span {
   display: block;
-  min-height: 1.35rem;
+  position: relative;
+  min-height: 1.52rem;
   color: rgba(232,243,240,.86);
-  font-size: .76rem;
+  font-size: clamp(.84rem, 1.05vw, .98rem);
+  line-height: 1.42;
   opacity: 0;
 }
 
@@ -3122,8 +3124,36 @@ p, li, small { text-wrap: pretty; }
 }
 
 .breach-boot.is-running .breach-boot__panel span {
-  color: rgba(236,255,249,.94);
-  text-shadow: 0 0 5px rgba(143,255,234,.72), 0 0 16px rgba(143,255,234,.34), 0 0 31px rgba(143,255,234,.14);
+  color: rgba(242,255,251,.98);
+  font-weight: 600;
+  text-shadow:
+    0 0 2px rgba(242,255,251,.95),
+    0 0 7px rgba(143,255,234,.88),
+    0 0 18px rgba(143,255,234,.48),
+    0 0 36px rgba(143,255,234,.18);
+}
+
+.breach-boot.is-running .breach-boot__panel span.is-visible {
+  -webkit-text-fill-color: transparent;
+  background:
+    repeating-linear-gradient(180deg, rgba(242,255,251,1) 0 .08em, rgba(177,255,239,.78) .08em .16em, rgba(48,146,135,.62) .16em .23em, rgba(236,255,249,.96) .23em .31em),
+    linear-gradient(90deg, rgba(242,255,251,.98), rgba(143,255,234,.93) 52%, rgba(255,237,241,.86));
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 5px rgba(143,255,234,.72)) drop-shadow(0 0 16px rgba(143,255,234,.32));
+}
+
+.breach-boot.is-running .breach-boot__panel span.is-visible::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: .06em;
+  bottom: .06em;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 .22em, rgba(0,0,0,.34) .22em .31em);
+  mix-blend-mode: multiply;
+  opacity: .6;
 }
 
 .breach-boot.is-running .breach-boot__panel span.is-visible::before {
@@ -3340,10 +3370,21 @@ p, li, small { text-wrap: pretty; }
   }
 }
 
+.breach-boot__panel span.is-typing::before {
+  content: "> ";
+  color: var(--cyan);
+  text-shadow: 0 0 7px rgba(143,255,234,.9), 0 0 18px rgba(143,255,234,.42);
+}
+
 .breach-boot__panel span.is-typing::after {
   content: "█";
+  position: static;
   margin-left: .18em;
   color: var(--cyan);
+  background: none;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 0 6px rgba(143,255,234,.82));
+  opacity: 1;
   animation: terminalCursorBlink .62s steps(1, end) infinite;
 }
 
