@@ -22,15 +22,18 @@
   gate.className = 'access-gate';
   gate.setAttribute('aria-label', 'Sector 404 access gate');
   gate.innerHTML = `
+    <div class="access-gate__sigil" aria-hidden="true">
+      <video class="access-gate__video" autoplay muted loop playsinline preload="auto">
+        <source src="/assets/video/sector-404-symbol.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div class="access-gate__panel">
-      <p class="access-gate__kicker">RPI DENIAL LAYER // UNAUTHORIZED MIRROR</p>
-      <h1>SECTOR 404</h1>
-      <p class="access-gate__copy">This access point is not public yet. Identify yourself to continue.</p>
+      <p class="access-gate__kicker">UNAUTHORIZED MIRROR</p>
       <form class="access-gate__form" autocomplete="off">
-        <label for="sector-access-name">Username</label>
+        <label for="sector-access-name">IDENTIFY SIGNAL</label>
         <div class="access-gate__row">
           <input id="sector-access-name" name="username" type="text" inputmode="text" autocomplete="off" spellcheck="false" autofocus />
-          <button type="submit">Enter</button>
+          <button type="submit">ENTER</button>
         </div>
         <p class="access-gate__error" role="status" aria-live="polite"></p>
       </form>
