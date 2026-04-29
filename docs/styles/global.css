@@ -2419,9 +2419,12 @@ p, li, small { text-wrap: pretty; }
   border-right: 1px solid rgba(143,255,234,.16);
   background:
     linear-gradient(90deg, rgba(255,39,79,.12), transparent 1.2rem),
-    linear-gradient(180deg, transparent 0 28%, rgba(143,255,234,.12) 28.2% 28.8%, transparent 29.2% 68%, rgba(255,39,79,.16) 68.1% 68.7%, transparent 69.2%);
-  opacity: .76;
+    linear-gradient(180deg, transparent 0 28%, rgba(143,255,234,.12) 28.2% 28.8%, transparent 29.2% 68%, rgba(255,39,79,.16) 68.1% 68.7%, transparent 69.2%),
+    repeating-linear-gradient(180deg, rgba(143,255,234,.16) 0 1px, transparent 1px 4px, rgba(255,39,79,.055) 4px 5px, transparent 5px 9px);
+  opacity: .82;
   mix-blend-mode: screen;
+  filter: drop-shadow(0 0 7px rgba(143,255,234,.18)) drop-shadow(0 0 9px rgba(255,39,79,.16));
+  animation: gatePanelScanlines 7.2s linear infinite, gatePanelInterference 2.9s steps(7, end) infinite;
 }
 
 .access-gate__kicker,
@@ -2905,6 +2908,7 @@ p, li, small { text-wrap: pretty; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .access-gate__panel::after { animation: none; }
   .breach-home::after,
   .vault-ring,
   .vault-core,
