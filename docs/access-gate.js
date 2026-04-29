@@ -32,7 +32,7 @@
     </div>
     <div class="access-gate__panel">
       <p class="access-gate__kicker">JULIAN INJECTION // SCREEN BREACH</p>
-      <p class="access-gate__warning">THE PUBLIC RPI FRONT IS CLEAN. THIS INPUT IS NOT. JULIAN HAS CUT A ROUTE THROUGH THE DISPLAY LAYER.</p>
+      <p class="access-gate__warning">RPI_AUTHORITY: BYPASSED // TUNNEL: JULIAN_CORRIDOR // DESTINATION: SECTOR_404</p>
       <form class="access-gate__form" autocomplete="off">
         <label for="sector-access-name">ENTER FOUND SIGNAL</label>
         <div class="access-gate__row">
