@@ -23,21 +23,11 @@
   gate.setAttribute('aria-label', 'Sector 404 access gate');
   gate.innerHTML = `
     <div class="access-gate__rpi-frame" aria-hidden="true">
-      <div class="access-gate__systembar">
-        <span>RACHELL POST INDUSTRIES // PUBLIC TERMINAL</span>
-        <span>CORPORATE FRONT</span>
-        <span>STATUS: CLEAN</span>
-      </div>
       <div class="access-gate__sigil">
         <video class="access-gate__video" autoplay muted loop playsinline preload="auto">
           <source src="/assets/video/sector-404-symbol.mp4" type="video/mp4" />
         </video>
         <img class="access-gate__wordmark" src="/assets/image/sector-404-access-wordmark.jpg" alt="" />
-      </div>
-      <div class="access-gate__official">
-        <span>PUBLIC RELATIONS NODE</span>
-        <span>AUTHORIZED DISPLAY SURFACE</span>
-        <span>NO ACTIVE INCIDENTS</span>
       </div>
     </div>
     <div class="access-gate__panel">

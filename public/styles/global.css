@@ -2318,38 +2318,16 @@ p, li, small { text-wrap: pretty; }
   align-self: end;
   width: min(60vh, 62vw, 36rem);
   display: grid;
-  gap: clamp(.24rem, .58vh, .46rem);
   justify-items: stretch;
-  color: rgba(205,222,218,.52);
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: .14em;
   filter: saturate(.72) contrast(1.06);
 }
 
 .access-gate__rpi-frame::before,
-.access-gate__rpi-frame::after {
-  content: none;
-}
-
+.access-gate__rpi-frame::after,
 .access-gate__systembar,
 .access-gate__official {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: .75rem;
-  padding: .34rem 0;
-  font-size: clamp(.46rem, .68vw, .58rem);
-  line-height: 1.3;
-  border-block: 1px solid rgba(205,222,218,.08);
-  color: rgba(205,222,218,.44);
-}
-
-.access-gate__systembar span:nth-child(2),
-.access-gate__official span:last-child {
-  color: rgba(205,222,218,.5);
-  text-shadow: none;
+  display: none !important;
+  content: none;
 }
 
 .access-gate__sigil {
@@ -2361,9 +2339,15 @@ p, li, small { text-wrap: pretty; }
   align-items: end;
   gap: 0;
   filter: none;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
 }
 
-.access-gate__sigil::before {
+.access-gate__sigil::before,
+.access-gate__sigil::after {
+  display: none !important;
   content: none;
 }
 
@@ -2375,6 +2359,10 @@ p, li, small { text-wrap: pretty; }
   opacity: .88;
   mix-blend-mode: screen;
   filter: grayscale(.22) brightness(.92) contrast(1.05);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
 }
 
 .access-gate__wordmark {
