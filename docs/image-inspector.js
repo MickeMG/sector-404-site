@@ -132,16 +132,25 @@
   const makeInspectable = (img) => {
     if (!img || img.dataset.inspectReady === 'true') return;
     if (/\.svg(\?|#|$)/i.test(img.getAttribute('src') || '')) return;
+    if (img.closest('a[href]') && img.dataset.forceInspect !== 'true') {
+      img.dataset.inspectReady = 'link-skip';
+      return;
+    }
     img.dataset.inspectReady = 'true';
     img.classList.add('inspectable-image');
     img.setAttribute('tabindex', '0');
     img.setAttribute('role', 'button');
     img.setAttribute('aria-label', `Inspect image: ${describe(img).label}`);
 
-    img.addEventListener('click', () => open(img));
+    img.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      open(img);
+    });
     img.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
+        event.stopPropagation();
         open(img);
       }
     });
