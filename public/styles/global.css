@@ -2299,18 +2299,17 @@ p, li, small { text-wrap: pretty; }
 
 .access-gate::before {
   background:
-    linear-gradient(90deg, transparent 0 7%, rgba(143,255,234,.045) 7.1% 7.22%, transparent 7.34% 47%, rgba(255,39,79,.04) 47.08% 47.16%, transparent 47.3% 92%, rgba(143,255,234,.035) 92.08% 92.2%, transparent 92.32%),
-    repeating-linear-gradient(180deg, rgba(143,255,234,.045) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(90deg, transparent 0 42px, rgba(255,255,255,.018) 42px 43px, transparent 43px 84px);
+    repeating-linear-gradient(180deg, rgba(210,226,222,.028) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(90deg, transparent 0 64px, rgba(255,255,255,.012) 64px 65px, transparent 65px 128px);
   mix-blend-mode: screen;
-  opacity: .38;
+  opacity: .22;
 }
 
 .access-gate::after {
   background:
-    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.88)),
-    radial-gradient(circle at 50% 48%, transparent 0 20rem, rgba(0,0,0,.58) 38rem, #000 100%);
-  opacity: .96;
+    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.74)),
+    radial-gradient(circle at 50% 43%, transparent 0 24rem, rgba(0,0,0,.42) 43rem, #000 100%);
+  opacity: .9;
 }
 
 .access-gate__rpi-frame {
@@ -2319,28 +2318,18 @@ p, li, small { text-wrap: pretty; }
   align-self: end;
   width: min(60vh, 62vw, 36rem);
   display: grid;
-  gap: clamp(.38rem, .9vh, .7rem);
+  gap: clamp(.24rem, .58vh, .46rem);
   justify-items: stretch;
-  color: rgba(143,255,234,.58);
+  color: rgba(205,222,218,.52);
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: .14em;
+  filter: saturate(.72) contrast(1.06);
 }
 
 .access-gate__rpi-frame::before,
 .access-gate__rpi-frame::after {
-  content: "";
-  position: absolute;
-  inset: clamp(1.6rem, 4vh, 2.7rem) -1rem clamp(1.2rem, 3vh, 2.2rem);
-  border: 1px solid rgba(143,255,234,.13);
-  pointer-events: none;
-}
-
-.access-gate__rpi-frame::after {
-  inset: clamp(2.4rem, 5.5vh, 3.8rem) -.35rem clamp(1.7rem, 4vh, 2.7rem);
-  border-color: rgba(255,39,79,.09);
-  transform: translate(.38rem, -.22rem);
-  clip-path: polygon(0 0, 74% 0, 74% 1px, 100% 1px, 100% 100%, 22% 100%, 22% calc(100% - 1px), 0 calc(100% - 1px));
+  content: none;
 }
 
 .access-gate__systembar,
@@ -2350,16 +2339,17 @@ p, li, small { text-wrap: pretty; }
   display: flex;
   justify-content: space-between;
   gap: .75rem;
-  padding: .42rem .12rem;
-  font-size: clamp(.48rem, .72vw, .64rem);
+  padding: .34rem 0;
+  font-size: clamp(.46rem, .68vw, .58rem);
   line-height: 1.3;
-  border-block: 1px solid rgba(143,255,234,.12);
+  border-block: 1px solid rgba(205,222,218,.08);
+  color: rgba(205,222,218,.44);
 }
 
 .access-gate__systembar span:nth-child(2),
 .access-gate__official span:last-child {
-  color: rgba(255,55,86,.76);
-  text-shadow: 0 0 12px rgba(255,39,79,.22);
+  color: rgba(205,222,218,.5);
+  text-shadow: none;
 }
 
 .access-gate__sigil {
@@ -2374,22 +2364,7 @@ p, li, small { text-wrap: pretty; }
 }
 
 .access-gate__sigil::before {
-  content: "JULIAN ROUTE DETECTED";
-  position: absolute;
-  top: 18%;
-  right: -1.4rem;
-  z-index: 3;
-  padding: .28rem .42rem;
-  color: rgba(255,55,86,.86);
-  background: rgba(0,0,0,.72);
-  border-left: 2px solid rgba(255,39,79,.58);
-  font-family: var(--font-mono);
-  font-size: clamp(.48rem, .74vw, .66rem);
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  transform: rotate(1.2deg) skewX(-8deg);
-  text-shadow: 0 0 14px rgba(255,39,79,.36);
-  animation: injectionBlink 1.8s steps(2, end) infinite;
+  content: none;
 }
 
 .access-gate__video {
@@ -2397,8 +2372,9 @@ p, li, small { text-wrap: pretty; }
   aspect-ratio: 1;
   object-fit: contain;
   display: block;
-  opacity: .92;
+  opacity: .88;
   mix-blend-mode: screen;
+  filter: grayscale(.22) brightness(.92) contrast(1.05);
 }
 
 .access-gate__wordmark {
@@ -2407,38 +2383,57 @@ p, li, small { text-wrap: pretty; }
   height: auto;
   display: block;
   margin-top: clamp(-5.2rem, -9vh, -2.4rem);
-  opacity: .95;
+  opacity: .9;
   mix-blend-mode: screen;
-  filter: contrast(1.12) brightness(.95);
+  filter: grayscale(.18) contrast(1.08) brightness(.9);
 }
 
 .access-gate__panel {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(31rem, 100%);
   padding: clamp(1rem, 3vw, 1.55rem);
   background:
-    linear-gradient(90deg, rgba(255,39,79,.12), transparent 18%, transparent 82%, rgba(143,255,234,.08)),
-    linear-gradient(180deg, rgba(3,5,6,.94), rgba(0,0,0,.84));
-  border: 1px solid rgba(143,255,234,.18);
+    linear-gradient(90deg, rgba(255,39,79,.22), transparent 16%, transparent 80%, rgba(143,255,234,.12)),
+    repeating-linear-gradient(180deg, rgba(255,39,79,.035) 0 1px, transparent 1px 8px),
+    linear-gradient(180deg, rgba(8,0,3,.95), rgba(0,0,0,.9));
+  border: 1px solid rgba(255,55,86,.34);
   box-shadow:
-    0 18px 44px rgba(0,0,0,.62),
-    inset 0 1px 0 rgba(143,255,234,.1),
-    inset 0 0 0 1px rgba(255,39,79,.055);
+    0 0 0 1px rgba(143,255,234,.06),
+    0 16px 42px rgba(0,0,0,.7),
+    0 0 34px rgba(255,39,79,.14),
+    inset 0 1px 0 rgba(143,255,234,.12),
+    inset 0 0 28px rgba(255,39,79,.075);
+  transform: translateY(clamp(-.4rem, -1vh, -.1rem));
 }
 
 .access-gate__panel::before {
-  content: "RPI AUTH LAYER // SPOOFED";
+  content: "JULIAN INJECTION // NOT RPI";
   position: absolute;
   top: -.66rem;
   left: .9rem;
   padding: 0 .45rem;
-  color: rgba(255,55,86,.78);
+  color: rgba(255,55,86,.92);
   background: #000;
   font-family: var(--font-mono);
   font-size: .52rem;
   letter-spacing: .17em;
   text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(255,39,79,.4);
+}
+
+.access-gate__panel::after {
+  content: "";
+  position: absolute;
+  inset: -.42rem;
+  pointer-events: none;
+  border-left: 2px solid rgba(255,39,79,.58);
+  border-right: 1px solid rgba(143,255,234,.16);
+  background:
+    linear-gradient(90deg, rgba(255,39,79,.12), transparent 1.2rem),
+    linear-gradient(180deg, transparent 0 28%, rgba(143,255,234,.12) 28.2% 28.8%, transparent 29.2% 68%, rgba(255,39,79,.16) 68.1% 68.7%, transparent 69.2%);
+  opacity: .76;
+  mix-blend-mode: screen;
 }
 
 .access-gate__kicker,
@@ -2452,15 +2447,15 @@ p, li, small { text-wrap: pretty; }
 }
 
 .access-gate__kicker {
-  color: rgba(255,55,86,.78);
+  color: rgba(255,55,86,.94);
   margin: 0 0 .7rem;
   text-align: center;
-  text-shadow: 0 0 16px rgba(255,39,79,.28);
+  text-shadow: 0 0 18px rgba(255,39,79,.42), 0 0 30px rgba(255,39,79,.14);
 }
 
 .access-gate__warning {
   margin: 0 0 .95rem;
-  color: rgba(202,220,216,.62);
+  color: rgba(236,218,222,.72);
   font-family: var(--font-mono);
   font-size: .64rem;
   line-height: 1.55;

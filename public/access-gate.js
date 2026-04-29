@@ -24,9 +24,9 @@
   gate.innerHTML = `
     <div class="access-gate__rpi-frame" aria-hidden="true">
       <div class="access-gate__systembar">
-        <span>RACHELL POST INDUSTRIES // AUTHORIZED TERMINAL</span>
-        <span>PUBLIC NODE: DENIED</span>
-        <span>SESSION: MONITORED</span>
+        <span>RACHELL POST INDUSTRIES // PUBLIC TERMINAL</span>
+        <span>CORPORATE FRONT</span>
+        <span>STATUS: CLEAN</span>
       </div>
       <div class="access-gate__sigil">
         <video class="access-gate__video" autoplay muted loop playsinline preload="auto">
@@ -35,14 +35,14 @@
         <img class="access-gate__wordmark" src="/assets/image/sector-404-access-wordmark.jpg" alt="" />
       </div>
       <div class="access-gate__official">
-        <span>RPI SECURE ACCESS NODE</span>
-        <span>ARCHIVE CLASS: RESTRICTED</span>
-        <span>INTEGRITY: COMPROMISED</span>
+        <span>PUBLIC RELATIONS NODE</span>
+        <span>AUTHORIZED DISPLAY SURFACE</span>
+        <span>NO ACTIVE INCIDENTS</span>
       </div>
     </div>
     <div class="access-gate__panel">
-      <p class="access-gate__kicker">JULIAN INJECTION // UNREGISTERED PORTAL</p>
-      <p class="access-gate__warning">OFFICIAL TERMINAL OVERRIDE DETECTED — A FOREIGN ROUTE HAS BEEN WRITTEN THROUGH THE RPI WALL.</p>
+      <p class="access-gate__kicker">JULIAN INJECTION // SCREEN BREACH</p>
+      <p class="access-gate__warning">THE PUBLIC RPI FRONT IS CLEAN. THIS INPUT IS NOT. JULIAN HAS CUT A ROUTE THROUGH THE DISPLAY LAYER.</p>
       <form class="access-gate__form" autocomplete="off">
         <label for="sector-access-name">ENTER FOUND SIGNAL</label>
         <div class="access-gate__row">
