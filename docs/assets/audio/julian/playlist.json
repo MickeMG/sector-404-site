@@ -1,12 +1,12 @@
 {
   "tracks": [
     {
-      "title": "Good End",
-      "src": "/assets/audio/julian/good-end.mp3"
-    },
-    {
       "title": "I Won't Stand",
       "src": "/assets/audio/julian/i-wont-stand.mp3"
+    },
+    {
+      "title": "Good End",
+      "src": "/assets/audio/julian/good-end.mp3"
     },
     {
       "title": "Chromed Rain",
